@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+  
+  <h1 id="day">Due Within 48 Hours</h1>
+  <table id="eventsDay">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Event</th>
+        <th>Type</th>
+        <th>Major Assessment</th>
+        <th>Notes</th>
+        <th>Days Left</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Data will be appended here -->
+    </tbody>
+  </table>
+
+  <h1>Due within 1 Week</h1>
+  <table id="eventsWeek">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Event</th>
+          <th>Type</th>
+          <th>Major Assessment</th>
+          <th>Extra Info</th>
+          <th>Days Left</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data will be appended here -->
+      </tbody>
+    </table>
+
+    <h1>Upcoming Major Assessments</h1>
+    <table id="eventsMajor">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Event</th>
+          <th>Type</th>
+          <th>Major Assessment</th>
+          <th>Extra Info</th>
+          <th>Days Left</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data will be appended here -->
+      </tbody>
+    </table>
+    
+    <h1>All Upcoming</h1>
+    
+    <div class="linkBox">
+      <a onclick="toggleVisibility('eventsAll', this)">+ Click to Open</a>
+    </div>
+    
+    <div id="eventsAllContainer" style="display: none;">
+      <table id="eventsAll">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Event</th>
+            <th>Type</th>
+            <th>Major Assessment</th>
+            <th>Extra Info</th>
+            <th>Days Left</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Data will be appended here -->
+        </tbody>
+      </table>
+    </div>
+
+    
+    <h1>All Completed</h1>
+    <div class="linkBox">
+      <a onclick="toggleVisibility('eventsCompleted', this)">+ Click to Open</a>
+    </div>
+
+    <div id="eventsCompletedContainer" style="display: none;">
+      <table id="eventsCompleted">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Event</th>
+            <th>Type</th>
+            <th>Major Assessment</th>
+            <th>Extra Info</th>
+            <th>Days Left</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Data will be appended here -->
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      function toggleVisibility(id, linkId) {
+        // Toggle table visibility
+        const container = document.getElementById(id + 'Container');
+        if (container.style.display === 'none') {
+          container.style.display = 'block';
+        } else {
+          container.style.display = 'none';
+        }
+        
+        // Toggle link visibility
+        if (linkId.innerHTML === '+ Click to Open') linkId.innerHTML = '- Click to Collapse';
+        else {
+          linkId.innerHTML = '+ Click to Open';
+        }
+      }
+      
+    </script>
+    
+    
+    <script>
+         
+    const jsonFilePath = 'assets/events.json';
+
+    // Fetch the JSON data and display it
+    fetch(jsonFilePath)
+    .then(response => {
+        if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        
+      console.log(data)
+      
+      const currentDate = new Date();
+      data.forEach(item => {
+        const eventDate = new Date(item.date);
+        const timeDiff = eventDate - currentDate;
+        const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+        item.daysLeft = daysLeft;
+      });
+
+      const tableReqs = [
+        {days: 1, table: document.querySelector('#eventsDay tbody')},
+        {days: 7, table: document.querySelector('#eventsWeek tbody')},
+        {major: true, table: document.querySelector('#eventsMajor tbody')},
+        {table: document.querySelector('#eventsAll tbody')},
+        {days: -1, table: document.querySelector('#eventsCompleted tbody')}
+      ];
+      
+      const tableBodies = [
+        document.querySelector('#eventsDay tbody'),
+        document.querySelector('#eventsWeek tbody'),
+        document.querySelector('#eventsMajor tbody'),
+        document.querySelector('#eventsAll tbody'),
+        document.querySelector('#eventsCompleted tbody')
+      ];
+      
+      // Populate a row with JSON data
+      const addRow = (item, tableBody) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${item.date}</td>
+          <td>${item.name}</td>
+          <td>${item.type}</td>
+          <td>${item.major}</td>
+          <td>${item.notes}</td>
+          <td>${item.daysLeft}</td>
+        `;
+        tableBody.appendChild(row);
+      }
+
+      data.forEach(item => {
+        console.log(item.daysLeft);
+        if(item.daysLeft >= 0 && item.daysLeft <= 1) {
+          addRow(item, tableBodies[0]);
+        }
+        if(item.daysLeft >= 0 && item.daysLeft <= 7) {
+          addRow(item, tableBodies[1]);
+        }
+        if(item.major === true) {
+          addRow(item, tableBodies[2]);
+        }
+        addRow(item, tableBodies[3]);
+
+        if(item.daysLeft < 0) {
+          addRow(item, tableBodies[4]);
+        }
+      });
+    
+    })
+    .catch(error => {
+        console.error('Error fetching or parsing JSON:', error);
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+h1 {
+    text-align: center; /* Centered text */
+    text-decoration: underline; /* Underlined text */
+}
+
+.linkBox {
+    text-align: center; /* Centered text */
+    margin-bottom: 15px; /* Added margin */
+}
+
+a {
+    color: blue; /* Blue text color */
+    text-decoration: underline; /* Underlined text */
+    transition: 0.3s; /* Smooth transition */
+}
+
+a:hover {
+    color: rgb(85, 29, 175); /* Darker blue text color on hover */
+}
+
+#day {
+    color: #880000; /* Changed text color */
+}
+
+table {
+    background-color: white; /* Changed background color */
+    border-collapse: collapse; /* Added border collapse */
+    width: 70%;
+    margin-top: 30px; /* Added margin */
+    margin-left: 15%;
+    margin-bottom: 30px;
+}
+
+th, td {
+    border: 1px solid black; /* Added border */
+    padding: 8px; /* Added padding */
+    text-align: left; /* Left text alignment */
+}
+
+th {
+    background-color: #f2f2f2; /* Header background color */
+    text-align: center;
+}

@@ -1,0 +1,11 @@
+[
+    {"date": "2025-01-14", "name": "Attend physics tutorial", "type": "In-person", "major": "No", "notes": "All"},
+    {"date": "2025-01-18", "name": "Calc II Quiz 1", "type": "Online", "major": "No", "notes": "All"},
+    {"date": "2025-01-21", "name": "Attend physics lab", "type": "In-person", "major": "No", "notes": "<...>"},
+    {"date": "2025-01-23", "name": "Statics Assignment 4A", "type": "In-person", "major": "No", "notes": "<...>"},
+    {"date": "2025-01-26", "name": "Programming Exercise 1 due", "type": "Online", "major": "No", "notes": "All"},
+    {"date": "2025-01-27", "name": "Programming Quiz 1", "type": "Online", "major": "No", "notes": "<...>"},
+    {"date": "2025-01-28", "name": "Attend physics tutorial", "type": "In-person", "major": "No", "notes": "All"},
+    {"date": "2025-01-30", "name": "Lin Alg Midterm 1", "type": "In-person", "major": "Yes", "notes": "All"}
+    
+]
