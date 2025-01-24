@@ -41,3 +41,23 @@ th {
     background-color: #f2f2f2; /* Header background color */
     text-align: center;
 }
+
+.warn {
+    text-align: center;
+    font-style: italic;
+    color: red;
+}
+
+.cell {
+    text-align: center;
+}
+
+.majorCell {
+    text-align: center;
+    font-weight: bold;
+}
+
+.introText {
+    margin-left: 20%;
+    margin-right: 20%;
+}
