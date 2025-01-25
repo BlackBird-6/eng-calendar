@@ -1,63 +1,160 @@
+body {
+    background-color: #f0f4f8; /* Light blue-gray background */
+}
+  
+  /* Base heading styles */
 h1 {
-    text-align: center; /* Centered text */
-    text-decoration: underline; /* Underlined text */
+    text-align: center;
+    text-decoration: none; /* Remove underline for cleaner look */
+    color: #1a365d; /* Deep blue for sophistication */
+    font-size: 2.25rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 0.5rem;
 }
 
+/* Add decorative underline to h1 */
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: #2563eb;
+    border-radius: 2px;
+}
+
+/* Link box styling */
 .linkBox {
-    text-align: center; /* Centered text */
-    margin-bottom: 15px; /* Added margin */
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: #f8fafc;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+/* Link styling */
 a {
-    color: blue; /* Blue text color */
-    text-decoration: underline; /* Underlined text */
-    transition: 0.3s; /* Smooth transition */
+    color: #2563eb; /* Modern blue */
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
 }
 
 a:hover {
-    color: rgb(85, 29, 175); /* Darker blue text color on hover */
+    color: #1e40af; /* Darker blue on hover */
+    background-color: #eff6ff; /* Light blue background on hover */
 }
 
+/* Day identifier */
 #day {
-    color: #880000; /* Changed text color */
+    color: #dc2626; /* Modern red */
+    font-weight: 600;
 }
 
+/* Table styling */
 table {
-    background-color: white; /* Changed background color */
-    border-collapse: collapse; /* Added border collapse */
-    width: 70%;
-    margin-top: 30px; /* Added margin */
-    margin-left: 15%;
-    margin-bottom: 30px;
+    background-color: white;
+    border-collapse: collapse;
+    width: 80%; /* More width for better layout */
+    margin: 30px auto; /* Centering */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Ensures rounded corners apply */
 }
 
 th, td {
-    border: 1px solid black; /* Added border */
-    padding: 8px; /* Added padding */
-    text-align: left; /* Left text alignment */
+    border: 1px solid #ddd; /* Softer border color */
+    padding: 12px;
+    text-align: center;
+    font-size: 1rem;
 }
 
 th {
-    background-color: #f2f2f2; /* Header background color */
-    text-align: center;
-}
-
-.warn {
-    text-align: center;
-    font-style: italic;
-    color: red;
-}
-
-.cell {
-    text-align: center;
-}
-
-.majorCell {
-    text-align: center;
+    background-color: #f1f1f1;
+    color: #333;
     font-weight: bold;
 }
 
+/* Warning text */
+.warn {
+    text-align: center;
+    font-style: italic;
+    color: #dc2626;
+    background-color: #fee2e2;
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    margin: 1rem 0;
+    font-weight: 500;
+}
+
+/* Center-aligned cells */
+.cell {
+    text-align: center;
+    padding: 0.75rem;
+}
+
+/* Major cells (important information) */
+.majorCell {
+    text-align: center;
+    font-weight: 700;
+    color: #5d0000;
+    background-color: #fff4f4;
+}
+
+h2.introText {
+    text-align: center;
+    text-decoration: underline;
+}
+
+h3.introText {
+    text-align: center;
+}
+
 .introText {
-    margin-left: 20%;
-    margin-right: 20%;
+    margin: 1rem auto;
+    max-width: 1200px;
+    line-height: 1.6;
+    color: #4b5563;
+    padding-bottom: 0px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    table {
+        width: 95%;
+        margin: 1rem auto;
+    }
+
+    th, td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.875rem;
+    }
+
+    .introText {
+        margin: 1.5rem auto;
+        padding: 0 1rem;
+    }
+
+    h1 {
+        font-size: 1.875rem;
+    }
+}
+
+
+
+/* Add subtle animations */
+.warn {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
 }

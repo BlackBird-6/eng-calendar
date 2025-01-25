@@ -7,19 +7,28 @@
     <title>Document</title>
 </head>
 <body>
-  
-    <p class="introText">Please note that no physics tutorials or labs will be listed. Because physics tutorial/labs run every week, this should already be part of everyone’s “normal” schedule for the week and hopefully does not need any reminders.
-    <br>
-    Also, only mandatory assignments with grades attached to them will be listed. This means that, for example, MatLab tutorial sessions for Lin Alg will not be listed.
-    <br>
-    Note that this calendar can be used as a useful tool, but there is still the possibility that data may have been entered wrong. Make sure to double-check any important dates, (especially if it comes down to the hour)! If you accidentally miss something, I hold no liability for any potential ramifications.
-    <br>
+
+    <h2 class="introText">General 1st Year Engineering Calendar</h2>
+    <h3 class="introText">by BlackBird_6</h3>
+    <p class="introText">Hello! This calendar is designed to help you keep track of important dates and deadlines for your first year engineering courses. It is recommended that you select your course cohort and respective course sections to filter out events that are not relevant to you. The calendar will automatically update to show you what is due within the next 48 hours, within the next week, and any upcoming major assessments. You can also view all upcoming events or all completed events.
+    <br/>
+    <br/>
+    Please note that no physics tutorials or labs will be listed. Because physics tutorial/labs run every week, this should already be part of your “normal” schedule for the week and hopefully does not need any reminders.
+    Also, only mandatory assignments with grades attached to them will be listed. This means that, for example, tutorial sections will not be listed, even if showing up to them may be helpful.
+    <br/>
+    <br/>
+    Note that this calendar can be used as a useful tool, but there is still the possibility that data may be inaccurate. Make sure to double-check any important dates, (especially if it comes down to the last minute)! If you accidentally miss anything important, I hold no liability for any potential consequences or ramifications.
+    <br/>
+    <br/>
     Find a mistake in the due dates? Notice a missing assignment? Have any other concerns/suggestions? Feel free to contact me at blackbird6366@gmail.com!
     </p>
 
+    <hr>
+    <br/>
   <div style="display: flex; justify-content: center;">
     <label>Statics Section: </label>
     <select id="staticsDropdown" style="margin-right: 10px;">
+      <option disabled selected value>-</option>
       <option value="staticsT004">TUT 004</option>
       <option value="staticsT005">TUT 005</option>
       <option value="staticsT006">TUT 006</option>
@@ -36,6 +45,7 @@
 
   <label>Programming Section: </label>
     <select id="programmingDropdown">
+      <option disabled selected value>-</option>
       <option value="programmingL003">LAB 004</option>
       <option value="programmingL004">LAB 004</option>
       <option value="programmingL005">LAB 005</option>
@@ -64,7 +74,7 @@
     </tbody>
   </table>
 
-  <h1>Due within 1 Week</h1>
+  <h1>Due Within 1 Week</h1>
   <table id="eventsWeek">
       <thead>
         <tr>
@@ -183,7 +193,7 @@
       var currentDate = new Date();
       data.forEach(item => {
         const eventDate = new Date(item.date + 'T00:00:00');
-        console.log(eventDate);
+        // console.log(eventDate);
         const timeDiff = eventDate - currentDate;
         const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
         item.daysLeft = daysLeft;
@@ -238,12 +248,14 @@
 
 
       document.getElementById("staticsDropdown").addEventListener("change", function () {
+        staticsWarn.style.display = "none";
         staticsSection = this.value;
         console.log("Selected:", this.value);
         renderItems();
       });
 
       document.getElementById("programmingDropdown").addEventListener("change", function () {
+        programmingWarn.style.display = "none";
         programmingSection = this.value;
         console.log("Selected:", this.value);
         renderItems();
