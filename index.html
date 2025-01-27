@@ -20,12 +20,26 @@
     Note that this calendar can be used as a useful tool, but there is still the possibility that data may be inaccurate. Make sure to double-check any important dates, (especially if it comes down to the last minute)! If you accidentally miss anything important, I hold no liability for any potential consequences or ramifications.
     <br/>
     <br/>
-    Find a mistake in the due dates? Notice a missing assignment? Have any other concerns/suggestions? Feel free to contact me at blackbird6366@gmail.com!
+    Find a mistake in the calendar? Notice anything missing? Have any other concerns or suggestions? Feel free to contact me at blackbird6366@gmail.com!
     </p>
 
     <hr>
     <br/>
-  <div style="display: flex; justify-content: center;">
+  <div class="flexContainer">
+
+    <label>Select Cohort: </label>
+    <select id="cohortDropdown" style="margin-right: 10px;">
+      <option disabled selected value>-</option>
+      <option value="cohortA">Chemistry + Materials</option>
+      <option value="cohortB">Linear Algebra + Programming</option>
+    </select>
+  
+  </div>
+  
+  <br/>
+  <h2 id="cohortWarn" class="warn">Warning! Cohort not yet selected.</h2>
+  
+  <div id="courseDropdowns" class="flexContainer" style="display: none;">
     <label>Statics Section: </label>
     <select id="staticsDropdown" style="margin-right: 10px;">
       <option disabled selected value>-</option>
@@ -43,20 +57,34 @@
       <option value="staticsT015">TUT 015</option>
   </select>
 
-  <label>Programming Section: </label>
-    <select id="programmingDropdown">
-      <option disabled selected value>-</option>
-      <option value="programmingL003">LAB 004</option>
-      <option value="programmingL004">LAB 004</option>
-      <option value="programmingL005">LAB 005</option>
-      <option value="programmingL006">LAB 006</option>
-      <option value="programmingL007">LAB 007</option>
-      <option value="programmingL008">LAB 008</option>
-  </select>
+  <div id="chemSelect">
+    <label>Chemistry Section: </label>
+      <select id="chemDropdown" style="margin-right: 10px;">
+        <option disabled selected value>-</option>
+        <option value="chemLO">Ends in ODD number</option>
+        <option value="chemLE">Ends in EVEN number</option>
+    </select>
+  </div>
+
+  <div class="programmingSelect">
+    <label>Programming Section: </label>
+      <select id="programmingDropdown" style="margin-right: 10px;">
+        <option disabled selected value>-</option>
+        <option value="programmingL003">LAB 004</option>
+        <option value="programmingL004">LAB 004</option>
+        <option value="programmingL005">LAB 005</option>
+        <option value="programmingL006">LAB 006</option>
+        <option value="programmingL007">LAB 007</option>
+        <option value="programmingL008">LAB 008</option>
+    </select>
+  </div>
+  
 </div>
 
-  <h2 id="staticsWarn" class="warn">Warning! Statics section not yet selected.</h2>
-  <h2 id="programmingWarn" class="warn">Warning! Programming section not yet selected.</h2>
+  <h2 id="staticsWarn" class="warn" style="display: none;">Warning! Statics section not yet selected.</h2>
+  <h2 id="programmingWarn" class="warn" style="display: none;">Warning! Programming section not yet selected.</h2>
+  <h2 id="chemWarn" class="warn" style="display: none;">Warning! Chemistry section not yet selected.</h2>
+
   <h1 id="day">Due Within 48 Hours</h1>
   <table id="eventsDay">
     <thead>
@@ -189,7 +217,7 @@
         return response.json();
     })
     .then(data => {
-
+      //       var currentDate = new Date('2026-01-01');
       var currentDate = new Date();
       data.forEach(item => {
         const eventDate = new Date(item.date + 'T00:00:00');
@@ -219,6 +247,9 @@
         `;
         if(item.daysLeft == 0) {
           row.innerHTML += `<td><b>Due Today.</b></td>`;
+          row.querySelectorAll('td').forEach(item => {
+            item.classList.add('timedCell');
+          });
         }
         else if (item.daysLeft > 0) {
           row.innerHTML += `<td>${item.daysLeft}</td>`;
@@ -244,8 +275,61 @@
       }
       
       let staticsSection = "N/A";
+      let chemSection = "N/A";
       let programmingSection = "N/A";
+      let cohort = "N/A";
 
+      const programmingSelect = document.querySelector('.programmingSelect');
+      const chemSelect = document.getElementById('chemSelect');
+      
+      document.getElementById("cohortDropdown").addEventListener("change", function () {
+        cohortWarn.style.display = "none";
+        cohort = this.value;
+        console.log("Selected:", this.value);
+        
+        courseDropdowns.style.display = "flex";
+
+        if(staticsSection == "N/A") {
+          staticsWarn.style.display = "block";
+        }
+
+        // Hide all elements relating to the other cohort and show all elements relating to this cohort
+        if(cohort == "cohortA") {
+          chemSelect.style.display = "block";
+
+          programmingSelect.style.display = "none";
+          programmingSection = "N/A"
+          programmingDropdown.selectedIndex = 0;
+          programmingWarn.style.display = "none";
+          
+          if(chemSection == "N/A") {
+            chemWarn.style.display = "block";
+          }
+
+        }
+        
+        if(cohort == "cohortB") {
+          programmingSelect.style.display = "block";
+          
+          chemSelect.style.display = "none";
+          chemWarn.style.display = "none";
+          chemSection = "N/A"
+          chemDropdown.selectedIndex = 0;
+          
+          if(programmingSection == "N/A") {
+            programmingWarn.style.display = "block";
+          }
+          
+        }
+
+        renderItems();
+      });
+
+      document.getElementById("chemDropdown").addEventListener("change", function () {
+        chemWarn.style.display = "none";
+        chemSection = this.value;
+        renderItems();
+      })
 
       document.getElementById("staticsDropdown").addEventListener("change", function () {
         staticsWarn.style.display = "none";
@@ -260,7 +344,18 @@
         console.log("Selected:", this.value);
         renderItems();
       });
-
+      
+      // Check if the user is attending the section related to the item
+      function checkAttendance(item) {
+        if(item.attending == "All" 
+          || item.attending == cohort 
+          || item.attending == staticsSection 
+          || item.attending == programmingSection
+          || item.attending == chemSection) {
+            return true;
+          }
+        else return false;
+      }
       function renderItems() {
 
         tableBodies.forEach(body => {
@@ -268,18 +363,20 @@
         });
 
         data.forEach(item => {
-
-          if(item.attending != "All" && item.attending != staticsSection && item.attending != programmingSection) {
+          
+          // If you are not attending the section related to this item, skip it.
+          if(checkAttendance(item) == false) {
             return;
           }
-
+          
+          // Add item to respective table
           if(item.daysLeft >= 0 && item.daysLeft <= 1) {
             addRow(item, tableBodies[0]);
           }
           if(item.daysLeft >= 2 && item.daysLeft <= 7) {
             addRow(item, tableBodies[1]);
           }
-          if(item.major === "Yes") {
+          if(item.daysLeft >= 0 && item.major === "Yes") {
             addRow(item, tableBodies[2]);
           }
 
@@ -291,6 +388,13 @@
             addRow(item, tableBodies[4]);
           }
         });
+
+        tableBodies.forEach(body => {
+          if(body.innerHTML === "") {
+            body.innerHTML = "<tr><td colspan='6' style='font-style: italic; background-color: #f0fff0;'>There are no upcoming events! Enjoy it while it lasts...</td></tr>";
+
+          }
+        })
       }
 
       renderItems();
