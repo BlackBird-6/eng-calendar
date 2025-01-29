@@ -221,6 +221,7 @@
     // Read events
     const jsonFilePath = 'assets/events.json';
     let stressMode = false;
+    let refresh;
 
     // Fetch JSON data
     fetch(jsonFilePath)
@@ -460,14 +461,14 @@
         
         // Refresh tables after one second (only if tables should be updated each second)
         if(stressMode) {
-          clearTimeout(renderItems);
-          setTimeout(renderItems, 1000);
+          clearTimeout(refresh);
+          refresh = setTimeout(renderItems, 1000);
         }
 
         // Otherwise update it once every ten minutes
         else {
-          clearTimeout(renderItems);
-          setTimeout(renderItems, 600000);
+          clearTimeout(refresh);
+          refresh = setTimeout(renderItems, 600000);
         }
       }
 
