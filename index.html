@@ -25,6 +25,7 @@
 
     <hr>
     <br/>
+
   <div class="flexContainer">
 
     <label>Select Cohort: </label>
@@ -33,7 +34,6 @@
       <option value="cohortA">Chemistry + Materials</option>
       <option value="cohortB">Linear Algebra + Programming</option>
     </select>
-  
   </div>
   
   <br/>
@@ -70,7 +70,7 @@
     <label>Programming Section: </label>
       <select id="programmingDropdown" style="margin-right: 10px;">
         <option disabled selected value>-</option>
-        <option value="programmingL003">LAB 004</option>
+        <option value="programmingL003">LAB 003</option>
         <option value="programmingL004">LAB 004</option>
         <option value="programmingL005">LAB 005</option>
         <option value="programmingL006">LAB 006</option>
@@ -79,6 +79,11 @@
     </select>
   </div>
   
+</div>
+
+<div class="flexContainer">
+  <label>Increase Stress: </label>
+  <input type="checkbox" id="renderSeconds">
 </div>
 
   <h2 id="staticsWarn" class="warn" style="display: none;">Warning! Statics section not yet selected.</h2>
@@ -94,7 +99,7 @@
         <th>Type</th>
         <th>Major Assessment</th>
         <th>Notes</th>
-        <th>Days Left</th>
+        <th>Time Left</th>
       </tr>
     </thead>
     <tbody>
@@ -111,7 +116,7 @@
           <th>Type</th>
           <th>Major Assessment</th>
           <th>Extra Info</th>
-          <th>Days Left</th>
+          <th>Time Left</th>
         </tr>
       </thead>
       <tbody>
@@ -128,7 +133,7 @@
           <th>Type</th>
           <th>Major Assessment</th>
           <th>Extra Info</th>
-          <th>Days Left</th>
+          <th>Time Left</th>
         </tr>
       </thead>
       <tbody>
@@ -151,7 +156,7 @@
             <th>Type</th>
             <th>Major Assessment</th>
             <th>Extra Info</th>
-            <th>Days Left</th>
+            <th>Time Left</th>
           </tr>
         </thead>
         <tbody>
@@ -175,7 +180,7 @@
             <th>Type</th>
             <th>Major Assessment</th>
             <th>Extra Info</th>
-            <th>Days Left</th>
+            <th>Time Left</th>
           </tr>
         </thead>
         <tbody>
@@ -207,6 +212,7 @@
     <script>
          
     const jsonFilePath = 'assets/events.json';
+    let stressMode = false;
 
     // Fetch the JSON data and display it
     fetch(jsonFilePath)
@@ -217,15 +223,7 @@
         return response.json();
     })
     .then(data => {
-      //       var currentDate = new Date('2026-01-01');
-      var currentDate = new Date();
-      data.forEach(item => {
-        const eventDate = new Date(item.date + 'T00:00:00');
-        // console.log(eventDate);
-        const timeDiff = eventDate - currentDate;
-        const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-        item.daysLeft = daysLeft;
-      });
+      updateDaysLeft();
 
       const tableBodies = [
         document.querySelector('#eventsDay tbody'),
@@ -246,13 +244,13 @@
           <td>${item.notes}</td> 
         `;
         if(item.daysLeft == 0) {
-          row.innerHTML += `<td><b>Due Today.</b></td>`;
+          row.innerHTML += `<td><b>Due Today.</b><br/>${item.hoursLeft} hours</td>`;
           row.querySelectorAll('td').forEach(item => {
             item.classList.add('timedCell');
           });
         }
         else if (item.daysLeft > 0) {
-          row.innerHTML += `<td>${item.daysLeft}</td>`;
+          row.innerHTML += `<td>${item.timeLeft}</td>`;
         }
         else {
           row.innerHTML += `<td>-</td>`;
@@ -285,7 +283,6 @@
       document.getElementById("cohortDropdown").addEventListener("change", function () {
         cohortWarn.style.display = "none";
         cohort = this.value;
-        console.log("Selected:", this.value);
         
         courseDropdowns.style.display = "flex";
 
@@ -319,7 +316,7 @@
           if(programmingSection == "N/A") {
             programmingWarn.style.display = "block";
           }
-          
+
         }
 
         renderItems();
@@ -334,16 +331,61 @@
       document.getElementById("staticsDropdown").addEventListener("change", function () {
         staticsWarn.style.display = "none";
         staticsSection = this.value;
-        console.log("Selected:", this.value);
         renderItems();
       });
 
       document.getElementById("programmingDropdown").addEventListener("change", function () {
         programmingWarn.style.display = "none";
         programmingSection = this.value;
-        console.log("Selected:", this.value);
         renderItems();
       });
+
+      document.getElementById("renderSeconds").addEventListener("change", function () {
+        stressMode = this.checked;
+        renderItems();
+      })
+      
+      
+
+      function updateDaysLeft() {
+        data.forEach(item => {
+
+          // var currentDate = new Date('2025-01-29 9:00:01');
+          var currentDate = new Date();
+
+          const eventDate = new Date(item.date + " " + item.time);
+          // console.log(eventDate);
+          const timeDiff = eventDate - currentDate;
+
+          item.daysLeft = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+          item.hoursLeft = Math.floor(timeDiff / 1000 / 60 / 60);
+          
+          if (stressMode == true) {
+            let secondsLeft = Math.ceil(timeDiff / 1000) % 60;
+            let minutesLeft = Math.floor(timeDiff / 1000 / 60) % 60;
+            let hoursLeft = Math.floor(timeDiff / 1000 / 60 / 60) % 24;
+            let daysLeft = Math.floor(timeDiff / 1000 / 60 / 60 / 24);
+
+            if (daysLeft <= 9) {
+              daysLeft = "0" + daysLeft;
+            }
+            if (hoursLeft <= 9) {
+              hoursLeft = "0" + hoursLeft;
+            }
+            if (minutesLeft <= 9) {
+              minutesLeft = "0" + minutesLeft;
+            }
+            if (secondsLeft <= 9) {
+              secondsLeft = "0" + secondsLeft;
+            }
+            
+            item.timeLeft = `${daysLeft}:${hoursLeft}:${minutesLeft}:${secondsLeft}`
+          }
+          else {
+            item.timeLeft = `${item.daysLeft} days`;
+          }
+       });
+      }
       
       // Check if the user is attending the section related to the item
       function checkAttendance(item) {
@@ -356,11 +398,14 @@
           }
         else return false;
       }
+
       function renderItems() {
 
         tableBodies.forEach(body => {
           body.innerHTML = '';
         });
+        
+        updateDaysLeft()
 
         data.forEach(item => {
           
@@ -370,21 +415,21 @@
           }
           
           // Add item to respective table
-          if(item.daysLeft >= 0 && item.daysLeft <= 1) {
+          if(item.hoursLeft >= 0 && item.hoursLeft < 48) {
             addRow(item, tableBodies[0]);
           }
-          if(item.daysLeft >= 2 && item.daysLeft <= 7) {
+          if(item.hoursLeft >= 48 && item.hoursLeft < 168) {
             addRow(item, tableBodies[1]);
           }
-          if(item.daysLeft >= 0 && item.major === "Yes") {
+          if(item.daysLeft >= 0 && item.daysLeft <= 31 && item.major === "Yes") {
             addRow(item, tableBodies[2]);
           }
 
-          if(item.daysLeft >= 0) {
+          if(item.hoursLeft >= 0) {
               addRow(item, tableBodies[3]);
           }
 
-          if(item.daysLeft < 0) {
+          if(item.hoursLeft < 0) {
             addRow(item, tableBodies[4]);
           }
         });
@@ -395,6 +440,11 @@
 
           }
         })
+
+        if(stressMode) {
+          clearTimeout(renderItems);
+          setTimeout(renderItems, 1000);
+        }
       }
 
       renderItems();

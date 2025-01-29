@@ -105,7 +105,7 @@ th {
 
 .timedCell {
     background-color: #fff4f4;
-    animation: redPulse 2s infinite;
+    animation: redPulse 1s infinite;
 }
 
 /* Major cells (important information) */
@@ -160,7 +160,7 @@ h3.introText {
 
 /* Add subtle animations */
 .warn {
-    animation: pulse 2s infinite;
+    animation: pulse 1s infinite;
 }
 
 @keyframes pulse {
@@ -170,7 +170,7 @@ h3.introText {
 }
 
 @keyframes redPulse {
-    0% { background-color: #ffffff; }
-    50% { background-color: #fff4f4; }
-    100% { background-color: #ffffff; }
+    0% { background-color: #fffbfb; }
+    50% { background-color: #fff7f7; }
+    100% { background-color: #fffbfb; }
 }
