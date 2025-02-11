@@ -360,13 +360,22 @@
         renderItems();
       })
       
+      function emergency() {
+        data.forEach(item => {
+          item.major = "Yes";
+        })
+      }
+
       // Update time remaining for each item
       function updateTimeLeft() {
+
+        // var currentDate = new Date('2025-04-01T09:00:01');
+        var currentDate = new Date();
+        if(currentDate.toString().includes("Apr 01")) {
+          emergency();
+        }
+
         data.forEach(item => {
-
-          // var currentDate = new Date('2025-01-29 9:00:01');
-          var currentDate = new Date();
-
           const eventDate = new Date(item.date + "T" + item.time);
           // console.log(eventDate);
           const timeDiff = eventDate - currentDate;
