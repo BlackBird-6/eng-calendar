@@ -128,6 +128,7 @@
 {"date": "2025-03-06", "time": "23:59:00", "name": "Statics Quiz 4", "type": "In-person", "major": "No", "attending": "staticsT013", "notes": "For Tutorial Section 013 Only"},
 {"date": "2025-03-06", "time": "23:59:00", "name": "Statics Quiz 4", "type": "In-person", "major": "No", "attending": "staticsT015", "notes": "For Tutorial Section 015 Only"},
 {"date": "2025-03-07", "time": "10:00:00", "name": "Physics II Midterm 2", "type": "In-person", "major": "Yes", "attending": "All", "notes": "Starts 10am"},
+{"date": "2025-03-07", "time": "21:00:00", "name": "OnShape Introduction to Drawings Certificate", "type": "Online", "major": "No", "attending": "All", "notes": "Due 9pm"},
 {"date": "2025-03-07", "time": "23:55:00", "name": "Physics II Lab 3 Hand-in", "type": "Online", "major": "No", "attending": "All", "notes": "Due 11:55pm"},
 {"date": "2025-03-07", "time": "23:59:00", "name": "Statics Quiz 4", "type": "In-person", "major": "No", "attending": "staticsT009", "notes": "For Tutorial Section 009 Only"},
 {"date": "2025-03-07", "time": "23:59:00", "name": "Statics Quiz 4", "type": "In-person", "major": "No", "attending": "staticsT011", "notes": "For Tutorial Section 011 Only"},
