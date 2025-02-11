@@ -157,8 +157,6 @@ h3.introText {
     }
 }
 
-
-
 /* Add subtle animations */
 .warn {
     animation: pulse 1s infinite;
@@ -175,3 +173,45 @@ h3.introText {
     50% { background-color: #fff7f7; }
     100% { background-color: #fffbfb; }
 }
+
+/* Checkbox styles */
+.itemCheckbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #e5e7eb;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  background-color: #fff;
+  vertical-align: middle;
+  margin-right: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.itemCheckbox:hover {
+  border-color: #2563eb;
+}
+
+.itemCheckbox:checked {
+  background-color: #2563eb;
+  border-color: #2563eb;
+  position: relative;
+}
+
+.itemCheckbox:checked::after {
+  content: "\2714";
+  font-size: 10px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Focus styles for accessibility */
+.itemCheckbox:focus {
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+}
+

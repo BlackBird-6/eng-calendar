@@ -26,12 +26,13 @@ fetch(jsonFilePath)
         const addRow = (item, tableBody) => {
             const row = document.createElement("tr");
             row.innerHTML = `
-          <td>${item.date}</td>
-          <td>${item.name}</td>
-          <td>${item.type}</td>
-          <td>${item.major}</td>
-          <td>${item.notes}</td> 
-        `;
+            <td>${item.date}</td>
+            <td>${item.name}</td>
+            <td><input type="checkbox" class="itemCheckbox", id=item${item.id}></td>
+            <td>${item.type}</td>
+            <td>${item.major}</td>
+            <td>${item.notes}</td> 
+            `;
 
             // Time left field becomes menacing if the event is due today, or empty if the event has passed
             if (item.daysLeft == 0) {
@@ -272,10 +273,25 @@ fetch(jsonFilePath)
                 clearTimeout(refresh);
                 refresh = setTimeout(renderItems, 600000);
             }
+
+            initializeCheckboxes();
         }
 
-        // Initial table rendering
+        // Initialize item checkboxes after rendering items
+        function initializeCheckboxes() {
+            itemCheckboxes = document.querySelectorAll(".itemCheckbox");
+            itemCheckboxes.forEach(itemCheckbox => {
+                itemCheckbox.checked = localStorage.getItem(itemCheckbox.id) == "true";
+                itemCheckbox.addEventListener("change", function() {
+                    localStorage.setItem(itemCheckbox.id, itemCheckbox.checked);
+                });
+            });
+        };
+
+
+        // Render items
         renderItems();
+
     })
     .catch(error => {
         console.error("Error fetching or parsing JSON:", error);
