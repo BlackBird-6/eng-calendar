@@ -177,7 +177,8 @@ fetch(jsonFilePath)
 
         // Update time remaining for each item
         function updateTimeLeft() {
-            // var currentDate = new Date('2025-04-01T09:00:01');
+
+            // Special surprise for April 1st
             var currentDate = new Date();
             if (currentDate.toString().includes("Apr 01")) {
                 emergency();
