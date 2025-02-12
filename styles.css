@@ -176,42 +176,43 @@ h3.introText {
 
 /* Checkbox styles */
 .itemCheckbox {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 14px;
-  height: 14px;
-  border: 2px solid #e5e7eb;
-  border-radius: 4px;
-  outline: none;
-  cursor: pointer;
-  background-color: #fff;
-  vertical-align: middle;
-  margin-right: 8px;
-  transition: all 0.2s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #e5e7eb;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    background-color: #fff;
+    vertical-align: middle;
+    margin-right: 8px;
+    transition: all 0.2s ease-in-out;
+    position: relative;
 }
-
+  
 .itemCheckbox:hover {
-  border-color: #2563eb;
+    border-color: #2563eb;
 }
-
+  
 .itemCheckbox:checked {
-  background-color: #2563eb;
-  border-color: #2563eb;
-  position: relative;
+    background-color: #2563eb;
+    border-color: #2563eb;
 }
-
+  
 .itemCheckbox:checked::after {
-  content: "\2714";
-  font-size: 10px;
-  color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
 }
-
+  
 /* Focus styles for accessibility */
 .itemCheckbox:focus {
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
 }
-
