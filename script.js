@@ -260,7 +260,7 @@ fetch(jsonFilePath)
             tableBodies.forEach(body => {
                 if (body.innerHTML === "") {
                     body.innerHTML
-            = "<tr><td colspan='6' style='font-style: italic; background-color: #f0fff0;'>There are no upcoming events! Enjoy it while it lasts...</td></tr>";
+            = "<tr><td colspan='7' style='font-style: italic; background-color: #f0fff0;'>There are no upcoming events! Enjoy it while it lasts...</td></tr>";
                 }
             });
 
