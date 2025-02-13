@@ -28,7 +28,7 @@ fetch(jsonFilePath)
             row.innerHTML = `
             <td>${item.date}</td>
             <td>${item.name}</td>
-            <td><input type="checkbox" class="itemCheckbox", id=item${item.id}></td>
+            <td><input type="checkbox" class="itemCheckbox" id="item${item.id}"></td>
             <td>${item.type}</td>
             <td>${item.major}</td>
             <td>${item.notes}</td> 
@@ -178,7 +178,6 @@ fetch(jsonFilePath)
 
         // Update time remaining for each item
         function updateTimeLeft() {
-
             // Special surprise for April 1st
             var currentDate = new Date();
             if (currentDate.toString().includes("Apr 01")) {
@@ -279,19 +278,21 @@ fetch(jsonFilePath)
 
         // Initialize item checkboxes after rendering items
         function initializeCheckboxes() {
-            itemCheckboxes = document.querySelectorAll(".itemCheckbox");
+            const itemCheckboxes = document.querySelectorAll(".itemCheckbox");
             itemCheckboxes.forEach(itemCheckbox => {
                 itemCheckbox.checked = localStorage.getItem(itemCheckbox.id) == "true";
                 itemCheckbox.addEventListener("change", function() {
                     localStorage.setItem(itemCheckbox.id, itemCheckbox.checked);
+                    const otherBoxes = document.querySelectorAll(`#${itemCheckbox.id}`);
+                    otherBoxes.forEach(box => {
+                        box.checked = itemCheckbox.checked;
+                    });
                 });
             });
-        };
-
+        }
 
         // Render items
         renderItems();
-
     })
     .catch(error => {
         console.error("Error fetching or parsing JSON:", error);
