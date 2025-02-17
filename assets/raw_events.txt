@@ -1,0 +1,295 @@
+# Add any new events at the bottom of the list...
+
+Feb 1 1pm, Business Eng Econ Exam, In-person, Yes, All, Starts 1pm
+Feb 7, Business Group Formation, In-person, No, All, -
+Feb 12, Business Team Commitments, In-person, No, All, -
+Mar 6 11:59pm, Business Organizational Behaviour Report, Online, Yes, All, Due 11:59pm
+
+Feb 10 9pm, 1050 Peer Feedback #3, Online, No, All, Due 9pm
+Feb 24 9pm, 1050 Individual Reflection #3, Online, No, All, Due 9pm
+
+Jan 24 9am, Design Individual Project, Online, No, All, Due 9am
+Feb 4 9pm, Design Team Project Report 1, Online, No, All, Due 9pm
+
+### Physics ###
+
+Feb 2 1pm, Physics II Midterm 1, In-person, Yes, All, Starts 1pm
+Mar 8 10am, Physics II Midterm 2, In-person, Yes, All, Starts 10am
+# TBD, Physics II Final, In-person, Yes, All, Starts TBD
+
+Jan 16 9am, Physics II Assignment 1, Online, No, All, Due 9am
+Jan 30 9am, Physics II Assignment 2, Online, No, All, Due 9am
+Feb 13 9am, Physics II Assignment 3, Online, No, All, Due 9am
+Mar 6 9am, Physics II Assignment 4, Online, No, All, Due 9am
+Mar 20 9am, Physics II Assignment 5, Online, No, All, Due 9am
+Apr 3 9am, Physics II Assignment 6, Online, No, All, Due 9am
+
+Feb 1, Physics II Assignment 1 resubmission, Online, No, All, -
+Feb 15, Physics II Assignment 2 resubmission, Online, No, All, -
+Mar 1, Physics II Assignment 3 resubmission, Online, No, All, -
+Mar 22, Physics II Assignment 4 resubmission, Online, No, All, -
+Apr 8, Physics II Assignment 5 resubmission, Online, No, All, Likely subject to change
+Apr 19, Physics II Assignment 6 resubmission, Online, No, All, Likely subject to change
+
+Feb 2 11:55pm, Physics II Lab 1 Hand-in, Online, No, All, Due 11:55pm
+Feb 24 11:55pm, Physics II Lab 2 Hand-in, Online, No, All, Due 11:55pm
+Mar 9 11:55pm, Physics II Lab 3 Hand-in, Online, No, All, Due 11:55pm
+Mar 23 11:55pm, Physics II Lab 4 Hand-in, Online, No, All, Due 11:55pm
+
+# No physics tutorials or lab start dates will be listed.
+# Since physics tutorial/labs run every week, this should already be part of a students “normal” schedule for the week and hopefully does not need any reminders
+
+### Calculus II ###
+
+Jan 19 11pm, Calc II Quiz 1, Online, No, All, Due 11pm
+Feb 4 11pm, Calc II Quiz 2, Online, No, All, Due 11pm
+Mar 9 11pm, Calc II Quiz 3, Online, No, All, Due 11pm
+Mar 23 11pm, Calc II Quiz 4, Online, No, All, Due 11pm
+
+Feb 28 7pm, Calc II Midterm, In-person, Yes, All, Starts 7pm
+# TBD, Calc II Final, In-person, Yes, All, Starts TBD
+
+### Linear Algebra ###
+
+Jan 20 11:59pm, Lin Alg Quiz 1, Online, No, cohortB, Due 11:59pm
+Feb 3 11:59pm, Lin Alg Quiz 2, Online, No, cohortB, Due 11:59pm
+Feb 27 11:59pm, Lin Alg Quiz 3, Online, No, cohortB, Due 11:59pm
+Mar 3 11:59pm, Lin Alg Quiz 4, Online, No, cohortB, Due 11:59pm
+Mar 17 11:59pm, Lin Alg Quiz 5, Online, No, cohortB, Due 11:59pm
+
+Jan 30, Lin Alg Midterm 1, In-person, Yes, cohortB, Held sometime this week during tutorial session.
+Feb 27, Lin Alg Midterm 2, In-person, Yes, cohortB, Held sometime this week during tutorial session.
+Mar 17, Lin Alg Computer Lab Test, In-person, Yes, cohortB, Held sometime this week during tutorial session.
+
+# TBD, Lin Alg Final, In-person, Yes, cohortB, TBD
+
+### Programming ###
+
+Jan 26 11:59pm, Programming Exercise 1, Online, No, cohortB, Due 11:59pm
+Feb 2 11:59pm, Programming Exercise 2, Online, No, cohortB, Due 11:59pm
+Feb 9 11:59pm, Programming Exercise 3, Online, No, cohortB, Due 11:59pm
+Feb 23 11:59pm, Programming Exercise 4, Online, No, cohortB, Due 11:59pm
+Mar 2 11:59pm, Programming Exercise 5, Online, No, cohortB, Due 11:59pm
+Mar 16 11:59pm, Programming Exercise 6, Online, No, cohortB, Due 11:59pm
+Mar 23 11:59pm, Programming Exercise 7, Online, No, cohortB, Due 11:59pm
+Mar 30 11:59pm, Programming Exercise 8, Online, No, cohortB, Due 11:59pm
+
+Jan 26, Programming Bonus Quiz 1, Online, No, cohortB, Due 11:59pm
+# Jan 26, Programming Bonus Quiz 2, Online, No, cohortB, Due 11:59pm
+# Jan 26, Programming Bonus Quiz 3, Online, No, cohortB, Due 11:59pm
+# Jan 26, Programming Bonus Quiz 4, Online, No, cohortB, Due 11:59pm
+# Jan 26, Programming Bonus Quiz 5, Online, No, cohortB, Due 11:59pm
+
+Jan 28, Programming Quiz 1, In-person, No, programmingL003, For Lab Section 003 Only
+Feb 11, Programming Quiz 2, In-person, No, programmingL003, For Lab Section 003 Only
+Feb 25, Programming Quiz 3, In-person, No, programmingL003, For Lab Section 003 Only
+Mar 18, Programming Quiz 4, In-person, No, programmingL003, For Lab Section 003 Only
+
+Jan 27, Programming Quiz 1, In-person, No, programmingL004, For Lab Section 004 Only
+Feb 10, Programming Quiz 2, In-person, No, programmingL004, For Lab Section 004 Only
+Feb 24, Programming Quiz 3, In-person, No, programmingL004, For Lab Section 004 Only
+Mar 17, Programming Quiz 4, In-person, No, programmingL004, For Lab Section 004 Only
+
+Jan 29, Programming Quiz 1, In-person, No, programmingL005, For Lab Section 005 Only
+Feb 12, Programming Quiz 2, In-person, No, programmingL005, For Lab Section 005 Only
+Feb 26, Programming Quiz 3, In-person, No, programmingL005, For Lab Section 005 Only
+Mar 19, Programming Quiz 4, In-person, No, programmingL005, For Lab Section 005 Only
+
+Jan 27, Programming Quiz 1, In-person, No, programmingL006, For Lab Section 006 Only
+Feb 10, Programming Quiz 2, In-person, No, programmingL006, For Lab Section 006 Only
+Feb 24, Programming Quiz 3, In-person, No, programmingL006, For Lab Section 006 Only
+Mar 17, Programming Quiz 4, In-person, No, programmingL006, For Lab Section 006 Only
+
+Jan 28, Programming Quiz 1, In-person, No, programmingL007, For Lab Section 007 Only
+Feb 11, Programming Quiz 2, In-person, No, programmingL007, For Lab Section 007 Only
+Feb 25, Programming Quiz 3, In-person, No, programmingL007, For Lab Section 007 Only
+Mar 18, Programming Quiz 4, In-person, No, programmingL007, For Lab Section 007 Only
+
+Jan 28, Programming Quiz 1, In-person, No, programmingL008, For Lab Section 008 Only
+Feb 11, Programming Quiz 2, In-person, No, programmingL008, For Lab Section 008 Only
+Feb 25, Programming Quiz 3, In-person, No, programmingL008, For Lab Section 008 Only
+Mar 18, Programming Quiz 4, In-person, No, programmingL008, For Lab Section 008 Only
+
+### Properties of Materials ###
+
+Jan 27 3:30pm, Mats Quiz 1, In-person, No, cohortA, Starts 3:30pm
+Feb 10 3:30pm, Mats Quiz 2, In-person, No, cohortA, Starts 3:30pm
+Mar 10 3:30pm, Mats Quiz 3, In-person, No, cohortA, Starts 3:30pm
+Mar 24 3:30pm, Mats Quiz 4, In-person, No, cohortA, Starts 3:30pm
+
+Jan 17 3:30pm, Pre Tutorial assignment 1, Online, No, cohortA, Due 3:30pm
+Jan 31 3:30pm, Pre Tutorial assignment 2, Online, No, cohortA, Due 3:30pm
+Mar 28 3:30pm, Pre-Tutorial Assignment 3, Online, No, cohortA, Due 3:30pm
+Mar 14 3:30pm, Pre-Tutorial assignment 4, Online, No, cohortA, Due 3:30pm
+
+Jan 20 3:30pm, Tutorial Exercise 1, In-person, No, cohortA, Starts 3:30pm
+Feb 3 3:30pm, Tutorial Exercise 2, In-person, No, cohortA, Starts 3:30pm
+Mar 3 3:30pm, Tutorial Exercise 3, In-person, No, cohortA, Starts 3:30pm
+Mar 17 3:30pm, Tutorial Exercise 4, In-person, No, cohortA, Starts 3:30pm
+
+Feb 24 3:30pm, Mats Midterm, In-person, Yes, cohortA, Starts 3:30pm. 90 minutes in duration
+
+Mar 28 6pm, Mats Term Project, In-person, Yes, cohortA, Due 6pm. Opens Mar 10
+
+
+### Chemistry ###
+
+Jan 20, Chem Team Module 1, Online, No, cohortA, -
+Feb 3, Chem Team Module 2, Online, No, cohortA, -
+Feb 24, Chem Team Module 3, Online, No, cohortA, -
+Mar 10, Chem Team Module 4, Online, No, cohortA, -
+Mar 24, Chem Team Module 5, Online, No, cohortA, -
+Apr 4, Chem Team Module 6, Online, No, cohortA, -
+
+Feb 1 10am, Chem Midterm 1, In-person, Yes, cohortA, From 10am-12pm
+Mar 9 3pm, Chem Midterm 2, In-person, Yes, cohortA, From 3pm-5pm
+
+
+Jan 20, Chem Lab 1, In-person, No, chemLO, Held sometime this week. For those whose lab section ends in 1/3/5
+Jan 27, Chem Lab 1, In-person, No, chemLE, Held sometime this week. For those whose lab section ends in 2/4/6
+Feb 3, Chem Lab 2, In-person, No, chemLO, Held sometime this week. For those whose lab section ends in 1/3/5
+Feb 10, Chem Lab 2, In-person, No, chemLE, Held sometime this week. For those whose lab section ends in 2/4/6
+Feb 24, Chem Lab 3, In-person, No, chemLO, Held sometime this week. For those whose lab section ends in 1/3/5
+Mar 3, Chem Lab 3, In-person, No, chemLE, Held sometime this week. For those whose lab section ends in 2/4/6
+Mar 10, Chem Lab 4, In-person, No, chemLO, Held sometime this week. For those whose lab section ends in 1/3/5
+Mar 17, Chem Lab 4, In-person, No, chemLE, Held sometime this week. For those whose lab section ends in 2/4/6
+
+Feb 7, Chem Post Lab 1, Online, No, cohortA, On achieve
+Feb 28, Chem Post Lab 2, Online, No, cohortA, On achieve
+Mar 14, Chem Post Lab 3, Online, No, cohortA, On achieve
+Mar 28, Chem Post Lab 4, Online, No, cohortA, On achieve
+
+### Statics ###
+
+Jan 23, Statics Assignment 4A, In-person, No, staticsT004, For Tutorial Section 004 Only
+Feb 6, Statics Assignment 4B, Online, No, staticsT004, For Tutorial Section 004 Only
+Feb 27, Statics Assignment 5A, In-person, No, staticsT004, For Tutorial Section 004 Only
+Mar 13, Statics Assignment 5B, Online, No, staticsT004, For Tutorial Section 004 Only
+Mar 27, Statics Assignment 6A, In-person, No, staticsT004, For Tutorial Section 004 Only
+Apr 10, Statics Assignment 6B, Online, No, staticsT004, For Tutorial Section 004 Only
+Feb 6, Statics Quiz 3, In-person, No, staticsT004, For Tutorial Section 004 Only
+Mar 13, Statics Quiz 4, In-person, No, staticsT004, For Tutorial Section 004 Only
+
+Jan 23, Statics Assignment 4A, In-person, No, staticsT006, For Tutorial Section 006 Only
+Feb 6, Statics Assignment 4B, Online, No, staticsT006, For Tutorial Section 006 Only
+Feb 27, Statics Assignment 5A, In-person, No, staticsT006, For Tutorial Section 006 Only
+Mar 13, Statics Assignment 5B, Online, No, staticsT006, For Tutorial Section 006 Only
+Mar 27, Statics Assignment 6A, In-person, No, staticsT006, For Tutorial Section 006 Only
+Apr 10, Statics Assignment 6B, Online, No, staticsT006, For Tutorial Section 006 Only
+Feb 6, Statics Quiz 3, In-person, No, staticsT006, For Tutorial Section 006 Only
+Mar 13, Statics Quiz 4, In-person, No, staticsT006, For Tutorial Section 006 Only
+
+Jan 24, Statics Assignment 4A, In-person, No, staticsT008, For Tutorial Section 008 Only
+Feb 7, Statics Assignment 4B, Online, No, staticsT008, For Tutorial Section 008 Only
+Feb 28, Statics Assignment 5A, In-person, No, staticsT008, For Tutorial Section 008 Only
+Mar 14, Statics Assignment 5B, Online, No, staticsT008, For Tutorial Section 008 Only
+Mar 28, Statics Assignment 6A, In-person, No, staticsT008, For Tutorial Section 008 Only
+Apr 11, Statics Assignment 6B, Online, No, staticsT008, For Tutorial Section 008 Only
+Feb 7, Statics Quiz 3, In-person, No, staticsT008, For Tutorial Section 008 Only
+Mar 14, Statics Quiz 4, In-person, No, staticsT008, For Tutorial Section 008 Only
+
+Jan 24, Statics Assignment 4A, In-person, No, staticsT010, For Tutorial Section 010 Only
+Feb 7, Statics Assignment 4B, Online, No, staticsT010, For Tutorial Section 010 Only
+Feb 28, Statics Assignment 5A, In-person, No, staticsT010, For Tutorial Section 010 Only
+Mar 14, Statics Assignment 5B, Online, No, staticsT010, For Tutorial Section 010 Only
+Mar 28, Statics Assignment 6A, In-person, No, staticsT010, For Tutorial Section 010 Only
+Apr 11, Statics Assignment 6B, Online, No, staticsT010, For Tutorial Section 010 Only
+Feb 7, Statics Quiz 3, In-person, No, staticsT010, For Tutorial Section 010 Only
+Mar 14, Statics Quiz 4, In-person, No, staticsT010, For Tutorial Section 010 Only
+
+Jan 23, Statics Assignment 4A, In-person, No, staticsT012, For Tutorial Section 012 Only
+Feb 6, Statics Assignment 4B, Online, No, staticsT012, For Tutorial Section 012 Only
+Feb 27, Statics Assignment 5A, In-person, No, staticsT012, For Tutorial Section 012 Only
+Mar 13, Statics Assignment 5B, Online, No, staticsT012, For Tutorial Section 012 Only
+Mar 27, Statics Assignment 6A, In-person, No, staticsT012, For Tutorial Section 012 Only
+Apr 10, Statics Assignment 6B, Online, No, staticsT012, For Tutorial Section 012 Only
+Feb 6, Statics Quiz 3, In-person, No, staticsT012, For Tutorial Section 012 Only
+Mar 13, Statics Quiz 4, In-person, No, staticsT012, For Tutorial Section 012 Only
+
+Jan 23, Statics Assignment 4A, In-person, No, staticsT014, For Tutorial Section 014 Only
+Feb 6, Statics Assignment 4B, Online, No, staticsT014, For Tutorial Section 014 Only
+Feb 27, Statics Assignment 5A, In-person, No, staticsT014, For Tutorial Section 014 Only
+Mar 13, Statics Assignment 5B, Online, No, staticsT014, For Tutorial Section 014 Only
+Mar 27, Statics Assignment 6A, In-person, No, staticsT014, For Tutorial Section 014 Only
+Apr 10, Statics Assignment 6B, Online, No, staticsT014, For Tutorial Section 014 Only
+Feb 6, Statics Quiz 3, In-person, No, staticsT014, For Tutorial Section 014 Only
+Mar 13, Statics Quiz 4, In-person, No, staticsT014, For Tutorial Section 014 Only
+
+
+Jan 16, Statics Assignment 4A, In-person, No, staticsT005, For Tutorial Section 005 Only
+Jan 30, Statics Assignment 4B, Online, No, staticsT005, For Tutorial Section 005 Only
+Feb 13, Statics Assignment 5A, In-person, No, staticsT005, For Tutorial Section 005 Only
+Feb 27, Statics Assignment 5B, Online, No, staticsT005, For Tutorial Section 005 Only
+Mar 20, Statics Assignment 6A, In-person, No, staticsT005, For Tutorial Section 005 Only
+Apr 3, Statics Assignment 6B, Online, No, staticsT005, For Tutorial Section 005 Only
+Jan 30, Statics Quiz 3, In-person, No, staticsT005, For Tutorial Section 005 Only
+Mar 6, Statics Quiz 4, In-person, No, staticsT005, For Tutorial Section 005 Only
+
+Jan 16, Statics Assignment 4A, In-person, No, staticsT007, For Tutorial Section 007 Only
+Jan 30, Statics Assignment 4B, Online, No, staticsT007, For Tutorial Section 007 Only
+Feb 13, Statics Assignment 5A, In-person, No, staticsT007, For Tutorial Section 007 Only
+Feb 27, Statics Assignment 5B, Online, No, staticsT007, For Tutorial Section 007 Only
+Mar 20, Statics Assignment 6A, In-person, No, staticsT007, For Tutorial Section 007 Only
+Apr 3, Statics Assignment 6B, Online, No, staticsT007, For Tutorial Section 007 Only
+Jan 30, Statics Quiz 3, In-person, No, staticsT007, For Tutorial Section 007 Only
+Mar 6, Statics Quiz 4, In-person, No, staticsT007, For Tutorial Section 007 Only
+
+Jan 17, Statics Assignment 4A, In-person, No, staticsT009, For Tutorial Section 009 Only
+Jan 31, Statics Assignment 4B, Online, No, staticsT009, For Tutorial Section 009 Only
+Feb 14, Statics Assignment 5A, In-person, No, staticsT009, For Tutorial Section 009 Only
+Feb 28, Statics Assignment 5B, Online, No, staticsT009, For Tutorial Section 009 Only
+Mar 21, Statics Assignment 6A, In-person, No, staticsT009, For Tutorial Section 009 Only
+Apr 4, Statics Assignment 6B, Online, No, staticsT009, For Tutorial Section 009 Only
+Jan 31, Statics Quiz 3, In-person, No, staticsT009, For Tutorial Section 009 Only
+Mar 7, Statics Quiz 4, In-person, No, staticsT009, For Tutorial Section 009 Only
+
+Jan 17, Statics Assignment 4A, In-person, No, staticsT011, For Tutorial Section 011 Only
+Jan 31, Statics Assignment 4B, Online, No, staticsT011, For Tutorial Section 011 Only
+Feb 14, Statics Assignment 5A, In-person, No, staticsT011, For Tutorial Section 011 Only
+Feb 28, Statics Assignment 5B, Online, No, staticsT011, For Tutorial Section 011 Only
+Mar 21, Statics Assignment 6A, In-person, No, staticsT011, For Tutorial Section 011 Only
+Apr 4, Statics Assignment 6B, Online, No, staticsT011, For Tutorial Section 011 Only
+Jan 31, Statics Quiz 3, In-person, No, staticsT011, For Tutorial Section 011 Only
+Mar 7, Statics Quiz 4, In-person, No, staticsT011, For Tutorial Section 011 Only
+
+Jan 16, Statics Assignment 4A, In-person, No, staticsT013, For Tutorial Section 013 Only
+Jan 30, Statics Assignment 4B, Online, No, staticsT013, For Tutorial Section 013 Only
+Feb 13, Statics Assignment 5A, In-person, No, staticsT013, For Tutorial Section 013 Only
+Feb 27, Statics Assignment 5B, Online, No, staticsT013, For Tutorial Section 013 Only
+Mar 20, Statics Assignment 6A, In-person, No, staticsT013, For Tutorial Section 013 Only
+Apr 3, Statics Assignment 6B, Online, No, staticsT013, For Tutorial Section 013 Only
+Jan 30, Statics Quiz 3, In-person, No, staticsT013, For Tutorial Section 013 Only
+Mar 6, Statics Quiz 4, In-person, No, staticsT013, For Tutorial Section 013 Only
+
+Jan 16, Statics Assignment 4A, In-person, No, staticsT015, For Tutorial Section 015 Only
+Jan 30, Statics Assignment 4B, Online, No, staticsT015, For Tutorial Section 015 Only
+Feb 13, Statics Assignment 5A, In-person, No, staticsT015, For Tutorial Section 015 Only
+Feb 27, Statics Assignment 5B, Online, No, staticsT015, For Tutorial Section 015 Only
+Mar 20, Statics Assignment 6A, In-person, No, staticsT015, For Tutorial Section 015 Only
+Apr 3, Statics Assignment 6B, Online, No, staticsT015, For Tutorial Section 015 Only
+Jan 30, Statics Quiz 3, In-person, No, staticsT015, For Tutorial Section 015 Only
+Mar 6, Statics Quiz 4, In-person, No, staticsT015, For Tutorial Section 015 Only
+
+# NEW EVENTS
+Apr 9 9am, Business General Management Final, In-person, Yes, All, Starts 9am
+Apr 12 9am, Statics Final, In-person, Yes, All, Starts 9am
+Apr 22 2pm, Programming Final, In-person, Yes, cohortB, Starts 2pm
+Apr 14 7pm, Lin Alg Final, In-person, Yes, cohortB, Starts 7pm
+Apr 10 7pm, Calc II Final, In-person, Yes, All, Starts 7pm
+Apr 17 2pm, Physics II Final, In-person, Yes, All, Starts 2pm
+Apr 7 2pm, Chem Final, In-person, Yes, cohortA, Starts 2pm
+Apr 15 9am, Materials Final, In-person, Yes, cohortA, Starts 9am
+Mar 7 9pm, Onshape Intro to Drawings Certificate, Online, No, All, Due 9pm
+
+Feb 28 9pm, 1050 Individual Assignment, Online, No, All, Due 9pm
+Mar 3 9pm, 1050 Group Report 2, Online, No, All, Due 9pm
+Mar 31 9pm, 1050 Peer Survey 4, Online, No, All, Due 9pm
+Mar 31 9pm, 1050 Group Report 3, Online, No, All, Due 9pm
+Mar 31 9pm, 1050 Group Project Documentation, Online, No, All, Due 9pm
+Apr 1, 1050 Winter Showcase, In-person, No, All, -
+Apr 4 9pm, 1050 Individual Reflection 4, Online, No, All, Due 9pm
+Mar 1 10am, Programming Midterm, In-person, Yes, cohortB, Starts 10am
+
+%%%%%
+# Add new events above the %%%%% line
+
