@@ -82,32 +82,32 @@ Jan 26, Programming Bonus Quiz 1, Online, No, cohortB, Due 11:59pm
 
 Jan 28, Programming Quiz 1, In-person, No, programmingL003, For Lab Section 003 Only
 Feb 11, Programming Quiz 2, In-person, No, programmingL003, For Lab Section 003 Only
-Feb 25, Programming Quiz 3, In-person, No, programmingL003, For Lab Section 003 Only
+Mar 4, Programming Quiz 3, In-person, No, programmingL003, For Lab Section 003 Only
 Mar 18, Programming Quiz 4, In-person, No, programmingL003, For Lab Section 003 Only
 
 Jan 27, Programming Quiz 1, In-person, No, programmingL004, For Lab Section 004 Only
 Feb 10, Programming Quiz 2, In-person, No, programmingL004, For Lab Section 004 Only
-Feb 24, Programming Quiz 3, In-person, No, programmingL004, For Lab Section 004 Only
+Mar 3, Programming Quiz 3, In-person, No, programmingL004, For Lab Section 004 Only
 Mar 17, Programming Quiz 4, In-person, No, programmingL004, For Lab Section 004 Only
 
 Jan 29, Programming Quiz 1, In-person, No, programmingL005, For Lab Section 005 Only
 Feb 12, Programming Quiz 2, In-person, No, programmingL005, For Lab Section 005 Only
-Feb 26, Programming Quiz 3, In-person, No, programmingL005, For Lab Section 005 Only
+Mar 5, Programming Quiz 3, In-person, No, programmingL005, For Lab Section 005 Only
 Mar 19, Programming Quiz 4, In-person, No, programmingL005, For Lab Section 005 Only
 
 Jan 27, Programming Quiz 1, In-person, No, programmingL006, For Lab Section 006 Only
 Feb 10, Programming Quiz 2, In-person, No, programmingL006, For Lab Section 006 Only
-Feb 24, Programming Quiz 3, In-person, No, programmingL006, For Lab Section 006 Only
+Mar 3, Programming Quiz 3, In-person, No, programmingL006, For Lab Section 006 Only
 Mar 17, Programming Quiz 4, In-person, No, programmingL006, For Lab Section 006 Only
 
 Jan 28, Programming Quiz 1, In-person, No, programmingL007, For Lab Section 007 Only
 Feb 11, Programming Quiz 2, In-person, No, programmingL007, For Lab Section 007 Only
-Feb 25, Programming Quiz 3, In-person, No, programmingL007, For Lab Section 007 Only
+Mar 4, Programming Quiz 3, In-person, No, programmingL007, For Lab Section 007 Only
 Mar 18, Programming Quiz 4, In-person, No, programmingL007, For Lab Section 007 Only
 
 Jan 28, Programming Quiz 1, In-person, No, programmingL008, For Lab Section 008 Only
 Feb 11, Programming Quiz 2, In-person, No, programmingL008, For Lab Section 008 Only
-Feb 25, Programming Quiz 3, In-person, No, programmingL008, For Lab Section 008 Only
+Mar 4, Programming Quiz 3, In-person, No, programmingL008, For Lab Section 008 Only
 Mar 18, Programming Quiz 4, In-person, No, programmingL008, For Lab Section 008 Only
 
 ### Properties of Materials ###
