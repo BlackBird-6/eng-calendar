@@ -37,9 +37,11 @@ fetch(jsonFilePath)
             // Time left field becomes menacing if the event is due today, or empty if the event has passed
             if (item.daysLeft == 0) {
                 row.innerHTML += `<td><b>Due Today.</b><br/>${item.timeLeft}</td>`;
-                row.querySelectorAll("td").forEach(item => {
-                    item.classList.add("timedCell");
-                });
+                if(item.major === "No") {
+                    row.querySelectorAll("td").forEach(item => {
+                        item.classList.add("timedCell");
+                    });
+                }
             } else if (item.daysLeft > 0) {
                 row.innerHTML += `<td>${item.timeLeft}</td>`;
             } else {
