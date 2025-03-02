@@ -54,8 +54,8 @@ Feb 28 7pm, Calc II Midterm, In-person, Yes, All, Starts 7pm
 Jan 20 11:59pm, Lin Alg Quiz 1, Online, No, cohortB, Due 11:59pm
 Feb 3 11:59pm, Lin Alg Quiz 2, Online, No, cohortB, Due 11:59pm
 Feb 27 11:59pm, Lin Alg Quiz 3, Online, No, cohortB, Due 11:59pm
-Mar 3 11:59pm, Lin Alg Quiz 4, Online, No, cohortB, Due 11:59pm
-Mar 17 11:59pm, Lin Alg Quiz 5, Online, No, cohortB, Due 11:59pm
+Mar 10 11:59pm, Lin Alg Quiz 4, Online, No, cohortB, Due 11:59pm
+Mar 24 11:59pm, Lin Alg Quiz 5, Online, No, cohortB, Due 11:59pm
 
 Jan 30, Lin Alg Midterm 1, In-person, Yes, cohortB, Held sometime this week during tutorial session.
 Feb 27, Lin Alg Midterm 2, In-person, Yes, cohortB, Held sometime this week during tutorial session.
@@ -282,7 +282,7 @@ Apr 15 9am, Materials Final, In-person, Yes, cohortA, Starts 9am
 Mar 7 9pm, Onshape Intro to Drawings Certificate, Online, No, All, Due 9pm
 
 Feb 1 9pm, 1050 Individual Assignment, Online, No, All, Due 9pm
-Mar 3 9pm, 1050 Group Report 2, Online, No, All, Due 9pm
+Mar 10 9pm, 1050 Group Report 2, Online, No, All, Due 9pm
 Mar 31 9pm, 1050 Peer Survey 4, Online, No, All, Due 9pm
 Mar 31 9pm, 1050 Group Report 3, Online, No, All, Due 9pm
 Mar 31 9pm, 1050 Group Project Documentation, Online, No, All, Due 9pm
