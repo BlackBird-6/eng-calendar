@@ -168,7 +168,7 @@ Mar 13, Statics Assignment 5B, Online, No, staticsT004, For Tutorial Section 004
 Mar 27, Statics Assignment 6A, In-person, No, staticsT004, For Tutorial Section 004 Only
 Apr 10, Statics Assignment 6B, Online, No, staticsT004, For Tutorial Section 004 Only
 Feb 6, Statics Quiz 3, In-person, No, staticsT004, For Tutorial Section 004 Only
-Mar 13, Statics Quiz 4, In-person, No, staticsT004, For Tutorial Section 004 Only
+Mar 20, Statics Quiz 4, In-person, No, staticsT004, For Tutorial Section 004 Only
 
 Jan 23, Statics Assignment 4A, In-person, No, staticsT006, For Tutorial Section 006 Only
 Feb 6, Statics Assignment 4B, Online, No, staticsT006, For Tutorial Section 006 Only
@@ -177,7 +177,7 @@ Mar 13, Statics Assignment 5B, Online, No, staticsT006, For Tutorial Section 006
 Mar 27, Statics Assignment 6A, In-person, No, staticsT006, For Tutorial Section 006 Only
 Apr 10, Statics Assignment 6B, Online, No, staticsT006, For Tutorial Section 006 Only
 Feb 6, Statics Quiz 3, In-person, No, staticsT006, For Tutorial Section 006 Only
-Mar 13, Statics Quiz 4, In-person, No, staticsT006, For Tutorial Section 006 Only
+Mar 20, Statics Quiz 4, In-person, No, staticsT006, For Tutorial Section 006 Only
 
 Jan 24, Statics Assignment 4A, In-person, No, staticsT008, For Tutorial Section 008 Only
 Feb 7, Statics Assignment 4B, Online, No, staticsT008, For Tutorial Section 008 Only
@@ -204,7 +204,7 @@ Mar 13, Statics Assignment 5B, Online, No, staticsT012, For Tutorial Section 012
 Mar 27, Statics Assignment 6A, In-person, No, staticsT012, For Tutorial Section 012 Only
 Apr 10, Statics Assignment 6B, Online, No, staticsT012, For Tutorial Section 012 Only
 Feb 6, Statics Quiz 3, In-person, No, staticsT012, For Tutorial Section 012 Only
-Mar 13, Statics Quiz 4, In-person, No, staticsT012, For Tutorial Section 012 Only
+Mar 20, Statics Quiz 4, In-person, No, staticsT012, For Tutorial Section 012 Only
 
 Jan 23, Statics Assignment 4A, In-person, No, staticsT014, For Tutorial Section 014 Only
 Feb 6, Statics Assignment 4B, Online, No, staticsT014, For Tutorial Section 014 Only
@@ -213,7 +213,7 @@ Mar 13, Statics Assignment 5B, Online, No, staticsT014, For Tutorial Section 014
 Mar 27, Statics Assignment 6A, In-person, No, staticsT014, For Tutorial Section 014 Only
 Apr 10, Statics Assignment 6B, Online, No, staticsT014, For Tutorial Section 014 Only
 Feb 6, Statics Quiz 3, In-person, No, staticsT014, For Tutorial Section 014 Only
-Mar 13, Statics Quiz 4, In-person, No, staticsT014, For Tutorial Section 014 Only
+Mar 20, Statics Quiz 4, In-person, No, staticsT014, For Tutorial Section 014 Only
 
 
 Jan 16, Statics Assignment 4A, In-person, No, staticsT005, For Tutorial Section 005 Only
