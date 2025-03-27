@@ -28,8 +28,8 @@ Feb 1, Physics II Assignment 1 resubmission, Online, No, All, -
 Feb 15, Physics II Assignment 2 resubmission, Online, No, All, -
 Mar 1, Physics II Assignment 3 resubmission, Online, No, All, -
 Mar 22, Physics II Assignment 4 resubmission, Online, No, All, -
-Apr 8, Physics II Assignment 5 resubmission, Online, No, All, Likely subject to change
-Apr 19, Physics II Assignment 6 resubmission, Online, No, All, Likely subject to change
+Apr 4, Physics II Assignment 5 resubmission, Online, No, All, May be subject to change
+Apr 4, Physics II Assignment 6 resubmission, Online, No, All, May be subject to change
 
 Feb 2 11:55pm, Physics II Lab 1 Hand-in, Online, No, All, Due 11:55pm
 Feb 24 11:55pm, Physics II Lab 2 Hand-in, Online, No, All, Due 11:55pm
@@ -166,7 +166,7 @@ Feb 6, Statics Assignment 4B, Online, No, staticsT004, For Tutorial Section 004 
 Feb 27, Statics Assignment 5A, In-person, No, staticsT004, For Tutorial Section 004 Only
 Mar 13, Statics Assignment 5B, Online, No, staticsT004, For Tutorial Section 004 Only
 Mar 27, Statics Assignment 6A, In-person, No, staticsT004, For Tutorial Section 004 Only
-Apr 10, Statics Assignment 6B, Online, No, staticsT004, For Tutorial Section 004 Only
+Apr 4, Statics Assignment 6B, Online, No, staticsT004, For Tutorial Section 004 Only
 Feb 6, Statics Quiz 3, In-person, No, staticsT004, For Tutorial Section 004 Only
 Mar 20, Statics Quiz 4, In-person, No, staticsT004, For Tutorial Section 004 Only
 
@@ -175,7 +175,7 @@ Feb 6, Statics Assignment 4B, Online, No, staticsT006, For Tutorial Section 006 
 Feb 27, Statics Assignment 5A, In-person, No, staticsT006, For Tutorial Section 006 Only
 Mar 13, Statics Assignment 5B, Online, No, staticsT006, For Tutorial Section 006 Only
 Mar 27, Statics Assignment 6A, In-person, No, staticsT006, For Tutorial Section 006 Only
-Apr 10, Statics Assignment 6B, Online, No, staticsT006, For Tutorial Section 006 Only
+Apr 4, Statics Assignment 6B, Online, No, staticsT006, For Tutorial Section 006 Only
 Feb 6, Statics Quiz 3, In-person, No, staticsT006, For Tutorial Section 006 Only
 Mar 20, Statics Quiz 4, In-person, No, staticsT006, For Tutorial Section 006 Only
 
@@ -184,7 +184,7 @@ Feb 7, Statics Assignment 4B, Online, No, staticsT008, For Tutorial Section 008 
 Feb 28, Statics Assignment 5A, In-person, No, staticsT008, For Tutorial Section 008 Only
 Mar 14, Statics Assignment 5B, Online, No, staticsT008, For Tutorial Section 008 Only
 Mar 28, Statics Assignment 6A, In-person, No, staticsT008, For Tutorial Section 008 Only
-Apr 11, Statics Assignment 6B, Online, No, staticsT008, For Tutorial Section 008 Only
+Apr 4, Statics Assignment 6B, Online, No, staticsT008, For Tutorial Section 008 Only
 Feb 7, Statics Quiz 3, In-person, No, staticsT008, For Tutorial Section 008 Only
 Mar 14, Statics Quiz 4, In-person, No, staticsT008, For Tutorial Section 008 Only
 
@@ -193,7 +193,7 @@ Feb 7, Statics Assignment 4B, Online, No, staticsT010, For Tutorial Section 010 
 Feb 28, Statics Assignment 5A, In-person, No, staticsT010, For Tutorial Section 010 Only
 Mar 14, Statics Assignment 5B, Online, No, staticsT010, For Tutorial Section 010 Only
 Mar 28, Statics Assignment 6A, In-person, No, staticsT010, For Tutorial Section 010 Only
-Apr 11, Statics Assignment 6B, Online, No, staticsT010, For Tutorial Section 010 Only
+Apr 4, Statics Assignment 6B, Online, No, staticsT010, For Tutorial Section 010 Only
 Feb 7, Statics Quiz 3, In-person, No, staticsT010, For Tutorial Section 010 Only
 Mar 14, Statics Quiz 4, In-person, No, staticsT010, For Tutorial Section 010 Only
 
@@ -202,7 +202,7 @@ Feb 6, Statics Assignment 4B, Online, No, staticsT012, For Tutorial Section 012 
 Feb 27, Statics Assignment 5A, In-person, No, staticsT012, For Tutorial Section 012 Only
 Mar 13, Statics Assignment 5B, Online, No, staticsT012, For Tutorial Section 012 Only
 Mar 27, Statics Assignment 6A, In-person, No, staticsT012, For Tutorial Section 012 Only
-Apr 10, Statics Assignment 6B, Online, No, staticsT012, For Tutorial Section 012 Only
+Apr 4, Statics Assignment 6B, Online, No, staticsT012, For Tutorial Section 012 Only
 Feb 6, Statics Quiz 3, In-person, No, staticsT012, For Tutorial Section 012 Only
 Mar 20, Statics Quiz 4, In-person, No, staticsT012, For Tutorial Section 012 Only
 
@@ -211,7 +211,7 @@ Feb 6, Statics Assignment 4B, Online, No, staticsT014, For Tutorial Section 014 
 Feb 27, Statics Assignment 5A, In-person, No, staticsT014, For Tutorial Section 014 Only
 Mar 13, Statics Assignment 5B, Online, No, staticsT014, For Tutorial Section 014 Only
 Mar 27, Statics Assignment 6A, In-person, No, staticsT014, For Tutorial Section 014 Only
-Apr 10, Statics Assignment 6B, Online, No, staticsT014, For Tutorial Section 014 Only
+Apr 4, Statics Assignment 6B, Online, No, staticsT014, For Tutorial Section 014 Only
 Feb 6, Statics Quiz 3, In-person, No, staticsT014, For Tutorial Section 014 Only
 Mar 20, Statics Quiz 4, In-person, No, staticsT014, For Tutorial Section 014 Only
 
@@ -221,7 +221,7 @@ Jan 30, Statics Assignment 4B, Online, No, staticsT005, For Tutorial Section 005
 Feb 13, Statics Assignment 5A, In-person, No, staticsT005, For Tutorial Section 005 Only
 Feb 27, Statics Assignment 5B, Online, No, staticsT005, For Tutorial Section 005 Only
 Mar 20, Statics Assignment 6A, In-person, No, staticsT005, For Tutorial Section 005 Only
-Apr 3, Statics Assignment 6B, Online, No, staticsT005, For Tutorial Section 005 Only
+Apr 4, Statics Assignment 6B, Online, No, staticsT005, For Tutorial Section 005 Only
 Jan 30, Statics Quiz 3, In-person, No, staticsT005, For Tutorial Section 005 Only
 Mar 6, Statics Quiz 4, In-person, No, staticsT005, For Tutorial Section 005 Only
 
@@ -230,7 +230,7 @@ Jan 30, Statics Assignment 4B, Online, No, staticsT007, For Tutorial Section 007
 Feb 13, Statics Assignment 5A, In-person, No, staticsT007, For Tutorial Section 007 Only
 Feb 27, Statics Assignment 5B, Online, No, staticsT007, For Tutorial Section 007 Only
 Mar 20, Statics Assignment 6A, In-person, No, staticsT007, For Tutorial Section 007 Only
-Apr 3, Statics Assignment 6B, Online, No, staticsT007, For Tutorial Section 007 Only
+Apr 4, Statics Assignment 6B, Online, No, staticsT007, For Tutorial Section 007 Only
 Jan 30, Statics Quiz 3, In-person, No, staticsT007, For Tutorial Section 007 Only
 Mar 6, Statics Quiz 4, In-person, No, staticsT007, For Tutorial Section 007 Only
 
@@ -257,7 +257,7 @@ Jan 30, Statics Assignment 4B, Online, No, staticsT013, For Tutorial Section 013
 Feb 13, Statics Assignment 5A, In-person, No, staticsT013, For Tutorial Section 013 Only
 Feb 27, Statics Assignment 5B, Online, No, staticsT013, For Tutorial Section 013 Only
 Mar 20, Statics Assignment 6A, In-person, No, staticsT013, For Tutorial Section 013 Only
-Apr 3, Statics Assignment 6B, Online, No, staticsT013, For Tutorial Section 013 Only
+Apr 4, Statics Assignment 6B, Online, No, staticsT013, For Tutorial Section 013 Only
 Jan 30, Statics Quiz 3, In-person, No, staticsT013, For Tutorial Section 013 Only
 Mar 6, Statics Quiz 4, In-person, No, staticsT013, For Tutorial Section 013 Only
 
@@ -266,7 +266,7 @@ Jan 30, Statics Assignment 4B, Online, No, staticsT015, For Tutorial Section 015
 Feb 13, Statics Assignment 5A, In-person, No, staticsT015, For Tutorial Section 015 Only
 Feb 27, Statics Assignment 5B, Online, No, staticsT015, For Tutorial Section 015 Only
 Mar 20, Statics Assignment 6A, In-person, No, staticsT015, For Tutorial Section 015 Only
-Apr 3, Statics Assignment 6B, Online, No, staticsT015, For Tutorial Section 015 Only
+Apr 4, Statics Assignment 6B, Online, No, staticsT015, For Tutorial Section 015 Only
 Jan 30, Statics Quiz 3, In-person, No, staticsT015, For Tutorial Section 015 Only
 Mar 6, Statics Quiz 4, In-person, No, staticsT015, For Tutorial Section 015 Only
 
@@ -283,12 +283,14 @@ Mar 7 9pm, Onshape Intro to Drawings Certificate, Online, No, All, Due 9pm
 
 Feb 1 9pm, 1050 Individual Assignment, Online, No, All, Due 9pm
 Mar 10 9pm, 1050 Group Report 2, Online, No, All, Due 9pm
-Mar 31 9pm, 1050 Peer Survey 4, Online, No, All, Due 9pm
+Apr 4 9pm, 1050 Peer Survey 4, Online, No, All, Due 9pm
 Mar 31 9pm, 1050 Group Report 3, Online, No, All, Due 9pm
 Mar 31 9pm, 1050 Group Project Documentation, Online, No, All, Due 9pm
 Apr 1, 1050 Winter Showcase, In-person, No, All, -
 Apr 4 9pm, 1050 Individual Reflection 4, Online, No, All, Due 9pm
 Mar 1 10am, Programming Midterm, In-person, Yes, cohortB, Starts 10am
+Mar 28 10am, 1050 Project Slide Submission, Online, No, All, Due 9pm
+Mar 30, Programming Bonus Quiz 5, Online, No, cohortB, -
 
 %%%%%
 # Add new events above the %%%%% line
