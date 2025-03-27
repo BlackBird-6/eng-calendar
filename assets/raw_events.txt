@@ -289,7 +289,7 @@ Mar 31 9pm, 1050 Group Project Documentation, Online, No, All, Due 9pm
 Apr 1, 1050 Winter Showcase, In-person, No, All, -
 Apr 4 9pm, 1050 Individual Reflection 4, Online, No, All, Due 9pm
 Mar 1 10am, Programming Midterm, In-person, Yes, cohortB, Starts 10am
-Mar 28 10am, 1050 Project Slide Submission, Online, No, All, Due 9pm
+Mar 28 10am, 1050 Project Slide Submission, Online, No, All, Due 10am
 Mar 30, Programming Bonus Quiz 5, Online, No, cohortB, -
 
 %%%%%

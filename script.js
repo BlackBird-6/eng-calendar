@@ -230,6 +230,11 @@ fetch(jsonFilePath)
               || item.attending == programmingSection
               || item.attending == chemSection;
         }
+        
+        // Refresh the page every eight hours of use to ensure up to date data
+        setInterval(() => {
+            location.reload();
+        }, 1000 * 60 * 60 * 8);
 
         function renderItems() {
             // Clear tables

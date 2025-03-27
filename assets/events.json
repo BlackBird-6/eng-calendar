@@ -183,7 +183,7 @@
 {"date": "2025-03-27", "time": "23:59:00", "name": "Statics Assignment 6A", "type": "In-person", "major": "No", "attending": "staticsT006", "notes": "For Tutorial Section 006 Only", "id": "118"},
 {"date": "2025-03-27", "time": "23:59:00", "name": "Statics Assignment 6A", "type": "In-person", "major": "No", "attending": "staticsT012", "notes": "For Tutorial Section 012 Only", "id": "142"},
 {"date": "2025-03-27", "time": "23:59:00", "name": "Statics Assignment 6A", "type": "In-person", "major": "No", "attending": "staticsT014", "notes": "For Tutorial Section 014 Only", "id": "150"},
-{"date": "2025-03-28", "time": "10:00:00", "name": "1050 Project Slide Submission", "type": "Online", "major": "No", "attending": "All", "notes": "Due 9pm", "id": "219"},
+{"date": "2025-03-28", "time": "10:00:00", "name": "1050 Project Slide Submission", "type": "Online", "major": "No", "attending": "All", "notes": "Due 10am", "id": "219"},
 {"date": "2025-03-28", "time": "15:30:00", "name": "Pre-Tutorial Assignment 3", "type": "Online", "major": "No", "attending": "cohortA", "notes": "Due 3:30pm", "id": "78"},
 {"date": "2025-03-28", "time": "18:00:00", "name": "Mats Term Project", "type": "In-person", "major": "Yes", "attending": "cohortA", "notes": "Due 6pm. Opens Mar 10", "id": "85"},
 {"date": "2025-03-28", "time": "23:59:00", "name": "Chem Post Lab 4", "type": "Online", "major": "No", "attending": "cohortA", "notes": "On achieve", "id": "105"},
