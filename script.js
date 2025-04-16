@@ -180,15 +180,16 @@ fetch(jsonFilePath)
 
         // Update time remaining for each item
         function updateTimeLeft() {
-            // Special surprise for April 1st
             var currentDate = new Date();
+            // currentDate = new Date("2025-04-25T10:00:00"); // Set to a specific date for testing
+            
+            // Special surprise for April 1st
             if (currentDate.toString().includes("Apr 01")) {
                 emergency();
             }
 
             data.forEach(item => {
                 const eventDate = new Date(item.date + "T" + item.time);
-                // console.log(eventDate);
                 const timeDiff = eventDate - currentDate;
 
                 item.daysLeft = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
@@ -263,13 +264,24 @@ fetch(jsonFilePath)
                     addRow(item, tableBodies[4]);
             });
 
-            // Empty tables give a congratulatory message
-            tableBodies.forEach(body => {
-                if (body.innerHTML === "") {
-                    body.innerHTML
-            = "<tr><td colspan='7' style='font-style: italic; background-color: #f0fff0;'>There are no upcoming events! Enjoy it while it lasts...</td></tr>";
-                }
-            });
+            // All events completed
+            if(tableBodies[3].innerHTML === "") {
+                tableBodies.forEach(body => {
+                    if (body.innerHTML === "") {
+                        body.innerHTML
+                = "<tr><td colspan='7' style='font-style: italic; background-color: #f0fff0;'>Everything has been completed! Enjoy your summer!</td></tr>";
+                    }
+                });
+            }
+            // No upcoming events
+            else {
+                tableBodies.forEach(body => {
+                    if (body.innerHTML === "") {
+                        body.innerHTML
+                = "<tr><td colspan='7' style='font-style: italic; background-color: #f0fff0;'>There are no upcoming events! Enjoy it while it lasts...</td></tr>";
+                    }
+                });
+            }
 
             // Refresh tables after one second (only if tables should be updated each second)
             if (stressMode) {
