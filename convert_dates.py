@@ -13,7 +13,7 @@ current_id = 0
 # Truncate all non-event lines out of the output (and ID counter)
 truncated_input = []
 for l in raw_input:
-    if l == "%%%%%":
+    if l.startswith("%"):
         break
 
     if l.startswith("#") or l == "":
@@ -24,14 +24,12 @@ for i, l in enumerate(truncated_input):
 
     # Remove whitespace near commas
     l = l.replace(", ", ",")
-    l = l.replace(" ,", ",")
+    l = l.replace(" ,","")
     l = l.split(",")
 
-    # Append the arbitrary numerical ID
-    l.append(str(i))
-
-
     date = l[0].split()
+
+    school_year = 2025
 
     months = {
         "Jan": "01",
@@ -113,6 +111,9 @@ parsed_input.sort(key=lambda ele: (ele[0], ele[1]))
 # Output into JSON
 output.writelines("[\n")
 for i, l in enumerate(parsed_input):
+
+    l.append(l[2].replace(" ", ""))
+
     if len(l) != 8:
         print(f"Error: Incorrect number of arguments detected in {l}.")
         raise Exception
