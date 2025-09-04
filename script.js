@@ -266,10 +266,8 @@ function renderItems() {
     updateTimeLeft();
 
     data.forEach(item => {
-        // If you are not attending the section related to this item, skip it
+        if(item.hidden === 'Yes') return;
         if (checkAttendance(item) == false) return;
-
-        // Add items to all applicable tables
 
         // Due within 48 Hours
         if (item.hoursLeft >= 0 && item.hoursLeft < 48)
@@ -332,10 +330,9 @@ function fetchData() {
         })
         .then(res => {
             let rows = JSON.parse(res.substr(47).slice(0, -2))['table']['rows'];
-            // console.log(rows)
             rows = rows.map(r => r['c'])
             for(r of rows) {
-                r = r.map((r, i) => {
+                r = r.map((r) => {
 
                     if (!r) return null;
                     if (!r['v']) return null;
@@ -345,23 +342,29 @@ function fetchData() {
                 
                 // Switch date format to ISO 8601 because mobile is annoying
                 if(!r[1]) r[1] = '11:59 PM'
+                
+                let fullDate = null;
+                if(r[0]) {
+                    let dateSplit = r[0].split("/") // ex. 12/14/2025
+                    let timeSplit = r[1].split(" ") // ex. 3:00 PM
+                    let hour = timeSplit[0].split(":")[0]
+                    let minute = timeSplit[0].split(":")[1]
+                    let hourAdjusted = Number(hour) + (timeSplit[1] === "PM" ? 12 : 0)
+                    let timeAdjusted = `${hourAdjusted < 10 ? "0" : ""}${hourAdjusted}:${minute}:00`
+                    fullDate = new Date(`${dateSplit[2]}-${dateSplit[0] < 10 ? "0" : ""}${dateSplit[0]}-${dateSplit[1] < 10 ? "0" : ""}${dateSplit[1]}T${timeAdjusted}`)                    
+                }
 
-                let dateSplit = r[0].split("/") // ex. 12/14/2025
-                let timeSplit = r[1].split(" ") // ex. 3:00 PM
-                let hour = timeSplit[0].split(":")[0]
-                let minute = timeSplit[0].split(":")[1]
-                let hourAdjusted = Number(hour) + (timeSplit[1] === "PM" ? 12 : 0)
-                let timeAdjusted = `${hourAdjusted < 10 ? "0" : ""}${hourAdjusted}:${minute}:00`
                 jsonRow = {
                     'date' : r[0],
-                    'fullDate' : new Date(`${dateSplit[2]}-${dateSplit[0] < 10 ? "0" : ""}${dateSplit[0]}-${dateSplit[1] < 10 ? "0" : ""}${dateSplit[1]}T${timeAdjusted}`),
+                    'fullDate' : fullDate,
                     'time' : r[1] ?? '11:59 PM',
                     'name' : r[2] ?? 'Unnamed Event',
                     'type' : r[3] ?? 'No',
                     'major' : r[4] ?? 'No',
                     'attending' : r[5] ?? 'All',
                     'notes' : r[6] ?? '-',
-                    'id' : r[2] ? r[2].replace(" ", "") : 'Unnamed'
+                    'id' : r[2] ? r[2].replace(" ", "") : 'Unnamed',
+                    'hidden' : r[7]
                 }
                 data.push(jsonRow)
             }
@@ -380,7 +383,7 @@ function fetchData() {
                 "type": "No",
                 "major": "Yes",
                 "attending": "All",
-                "notes": "An unknown error occurred while trying to load event data.\nPlease contact the organizer of the spreadsheet.",
+                "notes": "An unknown error occurred while trying to load event data. Try reloading the page, and contact the organizer of the spreadsheet if the error persists.",
                 "id": "ERROR500",
             }];
             processData(data);
