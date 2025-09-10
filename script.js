@@ -1,7 +1,7 @@
 // Read events
 const sheetId = localStorage.getItem("sheetId") ?? "1B6kZoFqaIocyBSl--YfNAmb3_QC__8kcnnV4xVhCC6A";
 const sheetName = "Events"; // tab name
-const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=${sheetName}`;
+let url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=${sheetName}`;
 
 
 const jsonFilePath = "assets/events.json";
@@ -364,7 +364,7 @@ function fetchData() {
                     'attending' : r[5] ?? 'All',
                     'notes' : r[6] ?? '-',
                     'id' : r[2] ? r[2].replace(" ", "") : 'Unnamed',
-                    'hidden' : r[7]
+                    'hidden' : r[7] ?? 'No'
                 }
                 data.push(jsonRow)
             }
