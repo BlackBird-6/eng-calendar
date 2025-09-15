@@ -1,10 +1,22 @@
 body {
     background-color: #f7f0f8; /* Light purple gray background */
+    padding: 0px;
+    margin: 0px;
 }
 
 .flexContainer {
-    display: flex; 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
     justify-content: center;
+}
+
+.noMargin {
+    margin: 0px;
+}
+
+.flexContainer select {
+    margin-right: 10px;
 }
   /* Base heading styles */
 h1 {
@@ -128,7 +140,7 @@ h3.introText {
 
 .introText {
     margin: 1rem auto;
-    max-width: 1200px;
+    width: 90%;
     line-height: 1.6;
     color: #4b5563;
     padding-bottom: 0px;

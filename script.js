@@ -1,8 +1,26 @@
 // Read events
-const sheetId = localStorage.getItem("sheetId") ?? "1B6kZoFqaIocyBSl--YfNAmb3_QC__8kcnnV4xVhCC6A";
+let sheetId = localStorage.getItem("sheetId") ?? "1B6kZoFqaIocyBSl--YfNAmb3_QC__8kcnnV4xVhCC6A";
 const sheetName = "Events"; // tab name
-let url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=${sheetName}`;
 
+let url = ''
+let loadCount = 0
+function swapSheet(sheetId) {
+    localStorage.setItem("sheetId", sheetId)
+    if(loadCount < 5) {
+        url_new = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?sheet=${sheetName}&tqx=out:json&tq=select A,B,C,D,E,F,G,H,I limit 1000 offset 0`;
+        if (url === url_new) return;
+        url = url_new;
+        fetchData();
+        startLoading();
+
+        loadCount += 1
+        setTimeout(fetchTimeout, 30000) // Soft cap at 5 fetch requests/30 seconds
+    }
+    else alert("Please wait a bit before trying again.")
+}
+function fetchTimeout() {
+    loadCount -= 1;
+}
 
 const jsonFilePath = "assets/events.json";
 let stressMode = localStorage.getItem("stressMode") ?? false;
@@ -18,93 +36,16 @@ const tableBodies = [
     document.querySelector("#eventsCompleted tbody")
 ];
 
-const chemWarn = document.querySelector("#chemWarn");
-const programmingWarn = document.querySelector("#programmingWarn");
-const staticsWarn = document.querySelector("#staticsWarn");
-const cohortWarn = document.querySelector("#cohortWarn");
+const courseWarn = document.querySelector("#courseWarn");
 
 const courseDropdowns = document.querySelector("#courseDropdowns");
 const programmingSelect = document.querySelector(".programmingSelect");
 const chemSelect = document.querySelector("#chemSelect");
-const cohortDropdown = document.querySelector("#cohortDropdown");
-const staticsDropdown = document.querySelector("#staticsDropdown");
-const chemDropdown = document.querySelector("#chemDropdown");
-const programmingDropdown = document.querySelector("#programmingDropdown");
 const renderSecondsBox = document.querySelector("#renderSeconds");
 
-// Declare variables for cohort and course sections
-let staticsSection = "";
-let chemSection = "";
-let programmingSection = "";
-let cohort = "";
+// Declare variables for course sections
+let attendingList = localStorage.getItem("attendingList") ? JSON.parse(localStorage.getItem("attendingList")) : {};
 
-// Event listeners for dropdowns
-cohortDropdown.addEventListener("change", function () {
-    if (this.value == "") return;
-    cohort = this.value;
-    cohortWarn.style.display = "none";
-    localStorage.setItem("cohort", cohort);
-
-    courseDropdowns.style.display = "flex";
-
-    if (!staticsSection) {
-        staticsWarn.style.display = "block";
-    }
-
-    // Hide all elements relating to the other cohort and show all elements relating to this cohort
-    if (cohort == "cohortA") {
-        chemSelect.style.display = "block";
-
-        programmingSelect.style.display = "none";
-        programmingSection = "";
-        programmingDropdown.selectedIndex = 0;
-        programmingWarn.style.display = "none";
-
-        if (!chemSection) {
-            chemWarn.style.display = "block";
-        }
-    }
-
-    if (cohort == "cohortB") {
-        programmingSelect.style.display = "block";
-
-        chemSelect.style.display = "none";
-        chemWarn.style.display = "none";
-        chemSection = "";
-        chemDropdown.selectedIndex = 0;
-
-        if (!programmingSection) {
-            programmingWarn.style.display = "block";
-        }
-    }
-
-    renderItems();
-});
-
-// Clear warning upon selecting a section ID
-chemDropdown.addEventListener("change", function () {
-    if (this.value == "") return;
-    chemSection = this.value;
-    chemWarn.style.display = "none";
-    localStorage.setItem("chemSection", chemSection);
-    renderItems();
-});
-
-staticsDropdown.addEventListener("change", function () {
-    if (this.value == "") return;
-    staticsSection = this.value;
-    staticsWarn.style.display = "none";
-    localStorage.setItem("staticsSection", staticsSection);
-    renderItems();
-});
-
-programmingDropdown.addEventListener("change", function () {
-    if (this.value == "") return;
-    programmingSection = this.value;
-    programmingWarn.style.display = "none";
-    localStorage.setItem("progSection", programmingSection);
-    renderItems();
-});
 
 renderSecondsBox.addEventListener("change", function () {
     stressMode = this.checked;
@@ -112,19 +53,12 @@ renderSecondsBox.addEventListener("change", function () {
     renderItems();
 });
 
-document.querySelector("h3.introText").innerHTML = atob("YnkgTmF0aGFuIENoaXU=");
+document.querySelector(".introText").innerHTML = atob("YnkgTmF0aGFuIENoaXU=");
+document.querySelector(".supportText").innerHTML = atob("PGhyPklmIHlvdSdkIGxpa2UgdG8gc3VwcG9ydCBteSBwcm9qZWN0cywgY2xpY2sgPGEgc3R5bGU9InBhZGRpbmc6IDA7IiBocmVmPSJodHRwczovL2tvLWZpLmNvbS9ibGFja2JpcmQ2Ij5oZXJlPC9hPiE=");
 
-cohortDropdown.value = localStorage.getItem("cohort") ?? "";
-staticsDropdown.value = localStorage.getItem("staticsSection") ?? "";
-chemDropdown.value = localStorage.getItem("chemSection") ?? "";
-programmingDropdown.value = localStorage.getItem("progSection") ?? "";
 renderSecondsBox.checked = localStorage.getItem("stressMode") == "true";
 
 // Update dropdowns
-cohortDropdown.dispatchEvent(new Event("change"));
-staticsDropdown.dispatchEvent(new Event("change"));
-chemDropdown.dispatchEvent(new Event("change"));
-programmingDropdown.dispatchEvent(new Event("change"));
 renderSecondsBox.dispatchEvent(new Event("change"));
 
 function emergency() {
@@ -184,11 +118,8 @@ function updateTimeLeft() {
 // Check if the user is attending the section related to the item
 function checkAttendance(item) {
     return item.attending == "All"
-        || item.attending == cohort
-        || item.attending == staticsSection
-        || item.attending == programmingSection
-        || item.attending == chemSection;
-}
+        || item.attending.includes(attendingList[toId(item.attendingHeader)]);
+    }
 
 // Refresh the page every eight hours of use to ensure up to date data
 setInterval(() => {
@@ -256,6 +187,82 @@ const addRow = (item, tableBody) => {
     tableBody.append(row);
 };
 
+function toId(str) {
+    return str.split("").filter(c => "abcdefghijklmnopqrstuvwxyz".includes(c.toLowerCase())).join("")
+}
+
+function checkCourseWarning() {
+    courseWarn.style.display = 'none';
+    Array.from(courseDropdowns.children).forEach(n => {
+        
+        if(n.style.display !== "none") {
+            let select = n.querySelector("select");
+            if(select && (!select.value || select.value === '-')) {
+                console.log(select.value)
+                courseWarn.style.display = 'block';
+            }            
+        }
+
+    })
+}
+function renderDropdowns() {
+    courseDropdowns.innerHTML = '';
+    let dropdownIds = {};
+
+    for(let entry of data) {
+        if (entry.attending && entry.attending !== 'All') {
+            
+            entry.attending = entry.attending.split(",").map((ele) => ele.trim())
+
+            // Set to empty array if it doesn't exist yet
+            dropdownIds[entry.attendingHeader] ??= new Set()
+            for(id of entry.attending) {
+                dropdownIds[entry.attendingHeader].add(id)
+            }
+        }
+    }
+
+    // Create a sorted dropdown for all necessary fields
+    for(let header in dropdownIds) {
+        dropdownIds[header] = Array.from(dropdownIds[header]).sort()
+
+        let dropdownDiv = document.createElement("div")
+        dropdownDiv.id = `${toId(header)}Select`
+
+        let dropdownLabel = document.createElement("label")
+        dropdownLabel.textContent = `${header}: `
+
+        let dropdownSelect = document.createElement("select")
+        dropdownSelect.innerHTML = `<option selected value>-</option>`
+
+        for(let id of dropdownIds[header]) {
+            let option = document.createElement("option")
+            option.value = id
+            option.textContent = `${id}`
+            dropdownSelect.append(option)
+        }
+        
+        dropdownSelect.addEventListener("change", function() {
+            attendingList[toId(header)] = this.value;
+            localStorage.setItem("attendingList", JSON.stringify(attendingList));
+            checkCourseWarning()
+            renderItems();
+        });
+
+        dropdownDiv.append(dropdownLabel)
+        dropdownDiv.append(dropdownSelect)
+        courseDropdowns.append(dropdownDiv)
+    }
+
+    Array.from(courseDropdowns.children).forEach(n => {
+        let select = n.querySelector("select");
+        if(select) {
+            select.value = attendingList[n.id.slice(0, -6)] ?? '-'
+            select.dispatchEvent(new Event("change"));
+        }
+    })
+    
+}
 
 function renderItems() {
     // Clear tables
@@ -267,6 +274,7 @@ function renderItems() {
 
     data.forEach(item => {
         if(item.hidden === 'Yes') return;
+        if(!item.date) return;
         if (checkAttendance(item) == false) return;
 
         // Due within 48 Hours
@@ -330,10 +338,10 @@ function fetchData() {
         })
         .then(res => {
             let rows = JSON.parse(res.substr(47).slice(0, -2))['table']['rows'];
-            rows = rows.map(r => r['c'])
+            rows = rows.map(r => r['c'].slice(0, 9))
+            // console.log(rows)
             for(r of rows) {
                 r = r.map((r) => {
-
                     if (!r) return null;
                     if (!r['v']) return null;
                     if (!r['f']) return r['v']
@@ -349,7 +357,7 @@ function fetchData() {
                     let timeSplit = r[1].split(" ") // ex. 3:00 PM
                     let hour = timeSplit[0].split(":")[0]
                     let minute = timeSplit[0].split(":")[1]
-                    let hourAdjusted = Number(hour) + (timeSplit[1] === "PM" ? 12 : 0)
+                    let hourAdjusted = Number(hour) + (timeSplit[1] === "PM" ? 12 : 0) - (Number(hour) === 12 ? 12 : 0)
                     let timeAdjusted = `${hourAdjusted < 10 ? "0" : ""}${hourAdjusted}:${minute}:00`
                     fullDate = new Date(`${dateSplit[2]}-${dateSplit[0] < 10 ? "0" : ""}${dateSplit[0]}-${dateSplit[1] < 10 ? "0" : ""}${dateSplit[1]}T${timeAdjusted}`)                    
                 }
@@ -361,37 +369,41 @@ function fetchData() {
                     'name' : r[2] ?? 'Unnamed Event',
                     'type' : r[3] ?? 'No',
                     'major' : r[4] ?? 'No',
-                    'attending' : r[5] ?? 'All',
-                    'notes' : r[6] ?? '-',
-                    'id' : r[2] ? r[2].replace(" ", "") : 'Unnamed',
-                    'hidden' : r[7] ?? 'No'
+                    'attendingHeader' : r[5] ?? (r[6] ? 'Unnamed Dropdown' : null),
+                    'attending' : r[6] ?? 'All',
+                    'notes' : r[7] ?? '-',
+                    'id' : r[2] ? toId(r[2]) : 'Unnamed',
+                    'hidden' : r[8] ?? 'No'
                 }
                 data.push(jsonRow)
             }
             
             data.sort((a, b) => a.fullDate - b.fullDate)
             processData(data)
+            renderDropdowns()
         })
         .catch(error => {
             console.error("Error fetching or parsing JSON from sheets:", error);
-            
-            data = [{
-                "date": "-",
-                "fullDate": new Date() + 1000*60*60*12,
-                "time": "11:59 PM",
-                "name": "ERROR 500",
-                "type": "No",
-                "major": "Yes",
-                "attending": "All",
-                "notes": "An unknown error occurred while trying to load event data. Try reloading the page, and contact the organizer of the spreadsheet if the error persists.",
-                "id": "ERROR500",
-            }];
-            processData(data);
+            renderError(500);
         });
 
     clearTimeout(refreshData);
     // Refresh data every 15 minutes
     refreshData = setTimeout(fetchData, 1000*60*15);
+}
+
+function renderError(id) {
+    data = [{
+                "date": "-",
+                "fullDate": new Date(Date.now() + + 1000*60*60*12),
+                "time": "11:59 PM",
+                "name": `ERROR`,
+                "type": "No",
+                "major": "Yes",
+                "attending": "All",
+                "notes": "An unknown error occurred while trying to load event data. Try reloading the page or check console for details. Contact the organizer of the spreadsheet if the error persists.",
+            }];
+    processData(data);
 }
 
 function processData(data) {
@@ -410,4 +422,19 @@ function toggleVisibility(id, linkId) {
         : "+ Click to Open";
 }
 
-fetchData();
+swapSheet(sheetId)
+
+function startLoading() {
+    const body = document.querySelector(".calendarBody")
+    body.style.opacity = 0
+    const loading = document.querySelector(".calendarLoading")
+    loading.style.display = "block";
+    setTimeout(stopLoading, 400)
+}
+function stopLoading() {
+    const body = document.querySelector(".calendarBody")
+    body.style.opacity = 1
+    const loading = document.querySelector(".calendarLoading")
+    loading.style.display = "none";
+}
+startLoading();

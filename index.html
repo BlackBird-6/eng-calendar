@@ -21,20 +21,21 @@
 <body>
   <hr style="margin-top: 0px;">
   <p class="introText">Hello! This calendar is designed to help you keep track of important dates and deadlines for your
-    first year engineering courses. It is recommended that you select your course cohort and respective course sections
+    university courses. It is recommended that you select your course cohort and respective course sections
     to filter out events that are not relevant to you. The calendar will automatically update to show you what is due
     within the next 48 hours, within the next week, and any upcoming major assessments. You can also view all upcoming
     events or all completed events.
     <br />
     <br />
-    Please note that no physics tutorials or labs will be listed. Because physics tutorial/labs run every week, this
-    should already be part of your “normal” schedule for the week and hopefully does not need any reminders.
+    Please note that for brevity, no events which take place weekly will be listed. Since they run every week, this
+    should already be part of your “normal” schedule for the week and hopefully does not need any reminders. This includes 
+    Physics Labs/Quizzes and Programming Quizzes for 1st years.
     Also, only mandatory assignments with grades attached to them will be listed. This means that, for example, tutorial
-    sections will not be listed, even if showing up to them may be helpful.
+    sections will not be listed, even if showing up to them would be helpful.
     <br />
     <br />
     Note that this calendar can be used as a useful tool, but there is still the possibility that data may be
-    inaccurate. Make sure to double-check any important dates, (especially if it comes down to the last minute)! If you
+    inaccurate. Make sure to double-check any important dates, especially if it comes down to the last minute! If you
     accidentally miss anything important, I hold no liability for any potential consequences or ramifications.
     <br />
     <br />
@@ -42,143 +43,101 @@
     contact me at blackbird6366@gmail.com!
   </p>
 
+  <div class="flexContainer">
+    <h2 class="noMargin">Select Calendar:</h2>
+  </div>
+
+  <div class="flexContainer">
+    <a onclick="swapSheet('1B6kZoFqaIocyBSl--YfNAmb3_QC__8kcnnV4xVhCC6A')">1st Year Engineering</a>
+    <a onclick="swapSheet('1LMcATnZ8rVms-qYzmDynx1oV5kkhrMkwBvhJbYflLKA')">2nd Year Software</a>
+    <a onclick="swapSheet(`${prompt('Enter Google Sheets ID (Template will be finalized and made available to the public soon...)')}`)">Custom</a>
+  </div>
+
   <hr>
   <br />
 
-  <!-- Dropdown for Cohort Selection -->
-  <div class="flexContainer">
-    <label>Select Cohort: </label>
-    <select id="cohortDropdown" style="margin-right: 10px;">
-      <option disabled selected value>-</option>
-      <option value="cohortA">Chemistry + Materials</option>
-      <option value="cohortB">Linear Algebra + Programming</option>
-    </select>
-  </div>
+  <h1 class="calendarLoading">Loading...</h1>
+  <div class="calendarBody" style="opacity: 0;">
 
-  <br />
-
-  <!-- Warning for Unselected Cohort -->
-  <h2 id="cohortWarn" class="warn">Warning! Cohort not yet selected.</h2>
-
-  <!-- Dropdowns for Course IDs -->
-  <div id="courseDropdowns" class="flexContainer" style="display: none;">
-    <label>Statics Section: </label>
-    <select id="staticsDropdown" style="margin-right: 10px;">
-      <option disabled selected value>-</option>
-      <option value="staticsT004">TUT 004</option>
-      <option value="staticsT005">TUT 005</option>
-      <option value="staticsT006">TUT 006</option>
-      <option value="staticsT007">TUT 007</option>
-      <option value="staticsT008">TUT 008</option>
-      <option value="staticsT009">TUT 009</option>
-      <option value="staticsT010">TUT 010</option>
-      <option value="staticsT011">TUT 011</option>
-      <option value="staticsT012">TUT 012</option>
-      <option value="staticsT013">TUT 013</option>
-      <option value="staticsT014">TUT 014</option>
-      <option value="staticsT015">TUT 015</option>
-    </select>
-
-    <div id="chemSelect">
-      <label>Chemistry Section: </label>
-      <select id="chemDropdown" style="margin-right: 10px;">
+    <!-- Dropdowns for Course IDs -->
+    <div id="courseDropdowns" class="flexContainer" style="display: flex;">
+      <!-- <label>Statics Section: </label>
+      <select id="staticsDropdown">
         <option disabled selected value>-</option>
-        <option value="chemLO">Ends in ODD number</option>
-        <option value="chemLE">Ends in EVEN number</option>
+        <option value="staticsT004">TUT 004</option>
+        <option value="staticsT005">TUT 005</option>
+        <option value="staticsT006">TUT 006</option>
+        <option value="staticsT007">TUT 007</option>
+        <option value="staticsT008">TUT 008</option>
+        <option value="staticsT009">TUT 009</option>
+        <option value="staticsT010">TUT 010</option>
+        <option value="staticsT011">TUT 011</option>
+        <option value="staticsT012">TUT 012</option>
+        <option value="staticsT013">TUT 013</option>
+        <option value="staticsT014">TUT 014</option>
+        <option value="staticsT015">TUT 015</option>
       </select>
+
+      <div id="chemSelect">
+        <label>Chemistry Section: </label>
+        <select id="chemDropdown">
+          <option disabled selected value>-</option>
+          <option value="chemLO">Ends in ODD number</option>
+          <option value="chemLE">Ends in EVEN number</option>
+        </select>
+      </div>
+
+      <div class="programmingSelect">
+        <label>Programming Section: </label>
+        <select id="programmingDropdown">
+          <option disabled selected value>-</option>
+          <option value="programmingL003">LAB 003</option>
+          <option value="programmingL004">LAB 004</option>
+          <option value="programmingL005">LAB 005</option>
+          <option value="programmingL006">LAB 006</option>
+          <option value="programmingL007">LAB 007</option>
+          <option value="programmingL008">LAB 008</option>
+        </select>
+      </div> -->
+
     </div>
 
-    <div class="programmingSelect">
-      <label>Programming Section: </label>
-      <select id="programmingDropdown" style="margin-right: 10px;">
-        <option disabled selected value>-</option>
-        <option value="programmingL003">LAB 003</option>
-        <option value="programmingL004">LAB 004</option>
-        <option value="programmingL005">LAB 005</option>
-        <option value="programmingL006">LAB 006</option>
-        <option value="programmingL007">LAB 007</option>
-        <option value="programmingL008">LAB 008</option>
-      </select>
+    <br />
+
+    <!-- Checkbox for tracking seconds -->
+    <div class="flexContainer">
+      <label>Increase Stress: </label>
+      <input type="checkbox" id="renderSeconds">
     </div>
 
-  </div>
+    <h2 id="courseWarn" class="warn" style="display: none;">Warning! Unselected courses still exist.</h2>
 
-  <br />
+    <!-- Warning for Unselected Course -->
+    <h2 id="staticsWarn" class="warn" style="display: none;">Warning! Statics section not yet selected.</h2>
+    <h2 id="programmingWarn" class="warn" style="display: none;">Warning! Programming section not yet selected.</h2>
+    <h2 id="chemWarn" class="warn" style="display: none;">Warning! Chemistry section not yet selected.</h2>
 
-  <!-- Checkbox for tracking seconds -->
-  <div class="flexContainer">
-    <label>Increase Stress: </label>
-    <input type="checkbox" id="renderSeconds">
-  </div>
+    <!-- Event Tables -->
+    <h1 id="day">Due Within 48 Hours</h1>
+    <table id="eventsDay">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Event</th>
+          <th>Done?</th>
+          <th>In-Person?</th>
+          <th>Major Assessment</th>
+          <th>Notes</th>
+          <th>Time Left</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data will be appended here -->
+      </tbody>
+    </table>
 
-  <!-- Warning for Unselected Course -->
-  <h2 id="staticsWarn" class="warn" style="display: none;">Warning! Statics section not yet selected.</h2>
-  <h2 id="programmingWarn" class="warn" style="display: none;">Warning! Programming section not yet selected.</h2>
-  <h2 id="chemWarn" class="warn" style="display: none;">Warning! Chemistry section not yet selected.</h2>
-
-  <!-- Event Tables -->
-  <h1 id="day">Due Within 48 Hours</h1>
-  <table id="eventsDay">
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Event</th>
-        <th>Done?</th>
-        <th>In-Person?</th>
-        <th>Major Assessment</th>
-        <th>Notes</th>
-        <th>Time Left</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Data will be appended here -->
-    </tbody>
-  </table>
-
-  <h1>Due Within 1 Week</h1>
-  <table id="eventsWeek">
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Event</th>
-        <th>Done?</th>
-        <th>In-Person?</th>
-        <th>Major Assessment</th>
-        <th>Extra Info</th>
-        <th>Time Left</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Data will be appended here -->
-    </tbody>
-  </table>
-
-  <h1>Upcoming Major Assessments</h1>
-  <table id="eventsMajor">
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Event</th>
-        <th>Done?</th>
-        <th>In-Person?</th>
-        <th>Major Assessment</th>
-        <th>Extra Info</th>
-        <th>Time Left</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Data will be appended here -->
-    </tbody>
-  </table>
-
-  <h1>All Upcoming</h1>
-
-  <div class="linkBox">
-    <a onclick="toggleVisibility('eventsAll', this)">+ Click to Open</a>
-  </div>
-
-  <div id="eventsAllContainer" style="display: none;">
-    <table id="eventsAll">
+    <h1>Due Within 1 Week</h1>
+    <table id="eventsWeek">
       <thead>
         <tr>
           <th>Date</th>
@@ -194,16 +153,9 @@
         <!-- Data will be appended here -->
       </tbody>
     </table>
-  </div>
 
-
-  <h1>All Completed</h1>
-  <div class="linkBox">
-    <a onclick="toggleVisibility('eventsCompleted', this)">+ Click to Open</a>
-  </div>
-
-  <div id="eventsCompletedContainer" style="display: none;">
-    <table id="eventsCompleted">
+    <h1>Upcoming Major Assessments</h1>
+    <table id="eventsMajor">
       <thead>
         <tr>
           <th>Date</th>
@@ -219,6 +171,60 @@
         <!-- Data will be appended here -->
       </tbody>
     </table>
+
+    <h1>All Upcoming</h1>
+
+    <div class="linkBox">
+      <a onclick="toggleVisibility('eventsAll', this)">+ Click to Open</a>
+    </div>
+
+    <div id="eventsAllContainer" style="display: none;">
+      <table id="eventsAll">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Event</th>
+            <th>Done?</th>
+            <th>In-Person?</th>
+            <th>Major Assessment</th>
+            <th>Extra Info</th>
+            <th>Time Left</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Data will be appended here -->
+        </tbody>
+      </table>
+    </div>
+
+
+    <h1>All Completed</h1>
+    <div class="linkBox">
+      <a onclick="toggleVisibility('eventsCompleted', this)">+ Click to Open</a>
+    </div>
+
+    <div id="eventsCompletedContainer" style="display: none;">
+      <table id="eventsCompleted">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Event</th>
+            <th>Done?</th>
+            <th>In-Person?</th>
+            <th>Major Assessment</th>
+            <th>Extra Info</th>
+            <th>Time Left</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Data will be appended here -->
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="flexContainer" style="margin-top: 50px; margin-bottom: 20px;">
+      <span class="supportText"></span>
+    </div>
   </div>
   <script src="script.js"></script>
 </body>
