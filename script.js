@@ -188,7 +188,7 @@ const addRow = (item, tableBody) => {
 };
 
 function toId(str) {
-    return str.split("").filter(c => "abcdefghijklmnopqrstuvwxyz".includes(c.toLowerCase())).join("")
+    return str.split("").filter(c => "abcdefghijklmnopqrstuvwxyz1234567890".includes(c.toLowerCase())).join("")
 }
 
 function checkCourseWarning() {
