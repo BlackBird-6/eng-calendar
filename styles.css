@@ -58,9 +58,12 @@ a {
     color: #2563eb; /* Modern blue */
     text-decoration: none;
     transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.cal-link {
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
-    cursor: pointer;
 }
 
 a:hover {
@@ -90,6 +93,7 @@ th, td {
     padding: 12px;
     text-align: center;
     font-size: 1rem;
+    white-space: pre-line; /* Allow line breaks */
 }
 
 th {

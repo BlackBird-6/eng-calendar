@@ -21,7 +21,7 @@
 <body>
   <hr style="margin-top: 0px;">
   <p class="introText">Hello! This calendar is designed to help you keep track of important dates and deadlines for your
-    university courses. It is recommended that you select your course cohort and respective course sections
+    university courses. It is recommended that you select your respective course sections
     to filter out events that are not relevant to you. The calendar will automatically update to show you what is due
     within the next 48 hours, within the next week, and any upcoming major assessments. You can also view all upcoming
     events or all completed events.
@@ -39,8 +39,8 @@
     accidentally miss anything important, I hold no liability for any potential consequences or ramifications.
     <br />
     <br />
-    Find a mistake in the calendar? Notice anything missing? Have any other concerns or suggestions? Feel free to
-    contact me at blackbird6366@gmail.com!
+    Find a mistake in any of the calendars? Have any other concerns or suggestions? Feel free to
+    join the discord <a class="disc-link">here</a>! You can also find a copy of the template spreadsheet used to create all of these calendars <a href="https://docs.google.com/spreadsheets/d/1tfHWfI2c1MNtvn0HkmS1b3R0oOuaNuo-xnfQUu0tXX8/edit?usp=sharing">here</a>! If you create your own calendar and share it with me, I may also add it to the site for everyone else to use. Enjoy!
   </p>
 
   <div class="flexContainer">
@@ -48,11 +48,11 @@
   </div>
 
   <div class="flexContainer">
-    <a onclick="swapSheet('1B6kZoFqaIocyBSl--YfNAmb3_QC__8kcnnV4xVhCC6A')">1st Year Engineering</a>
-    <a onclick="swapSheet('1LMcATnZ8rVms-qYzmDynx1oV5kkhrMkwBvhJbYflLKA')">2nd Year Software</a>
-    <a onclick="swapSheet('1HwQoV-G6VOgtyzIvoLyc7gR4FzajTOe4C8X2q53o9lg')">2nd Year Electrical</a>
-    <a onclick="swapSheet('1NJTLaNprNItsDXc_5en1mQVjB7cnQd5YGsnbqyTbWsU')">2nd Year Mechanical</a>
-    <a onclick="swapSheet(`${prompt('Enter Google Sheets ID (Template will be made available to the public soon...)')}`)">Custom</a>
+    <a class="cal-link" onclick="swapSheet('1B6kZoFqaIocyBSl--YfNAmb3_QC__8kcnnV4xVhCC6A')">1st Year Engineering</a>
+    <a class="cal-link" onclick="swapSheet('1LMcATnZ8rVms-qYzmDynx1oV5kkhrMkwBvhJbYflLKA')">2nd Year Software</a>
+    <a class="cal-link" onclick="swapSheet('1HwQoV-G6VOgtyzIvoLyc7gR4FzajTOe4C8X2q53o9lg')">2nd Year Electrical</a>
+    <a class="cal-link" onclick="swapSheet('1NJTLaNprNItsDXc_5en1mQVjB7cnQd5YGsnbqyTbWsU')">2nd Year Mechanical</a>
+    <a class="cal-link" onclick="swapSheet(`${prompt('Enter Google Sheets ID')}`)">Custom</a>
   </div>
 
   <hr>
