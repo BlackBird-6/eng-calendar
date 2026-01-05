@@ -48,12 +48,12 @@ renderSecondsBox.checked = localStorage.getItem("stressMode") == "true";
 // Update dropdowns
 renderSecondsBox.dispatchEvent(new Event("change"));
 
-function swapSheet(sheetId) {
+function swapSheet(sheetId, ignoreConstruction) {
     localStorage.setItem("sheetId", sheetId)
     url_new = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?sheet=${sheetName}&tqx=out:json&tq=select A,B,C,D,E,F,G,H,I limit 1000 offset 0`;
     if (url === url_new) return;
     url = url_new;
-    if (constructionIds.includes(sheetId)) {
+    if (!ignoreConstruction && constructionIds.includes(sheetId)) {
         renderConstruction();
         return;
     }
