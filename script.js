@@ -1,5 +1,13 @@
 // Read events
 let sheetId = localStorage.getItem("sheetId") ?? "1B6kZoFqaIocyBSl--YfNAmb3_QC__8kcnnV4xVhCC6A";
+
+let constructionIds = [
+    "1B6kZoFqaIocyBSl--YfNAmb3_QC__8kcnnV4xVhCC6A", // 1st Year Engineering
+    "1LMcATnZ8rVms-qYzmDynx1oV5kkhrMkwBvhJbYflLKA", // 2nd Year Software
+    "1HwQoV-G6VOgtyzIvoLyc7gR4FzajTOe4C8X2q53o9lg", // 2nd Year Electrical
+    "1NJTLaNprNItsDXc_5en1mQVjB7cnQd5YGsnbqyTbWsU"  // 2nd Year Mechanical
+];
+
 const sheetName = "Events"; // tab name
 
 let url = ''
@@ -42,10 +50,14 @@ renderSecondsBox.dispatchEvent(new Event("change"));
 
 function swapSheet(sheetId) {
     localStorage.setItem("sheetId", sheetId)
-        url_new = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?sheet=${sheetName}&tqx=out:json&tq=select A,B,C,D,E,F,G,H,I limit 1000 offset 0`;
-        if (url === url_new) return;
-        url = url_new;
-        fetchData();
+    url_new = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?sheet=${sheetName}&tqx=out:json&tq=select A,B,C,D,E,F,G,H,I limit 1000 offset 0`;
+    if (url === url_new) return;
+    url = url_new;
+    if (constructionIds.includes(sheetId)) {
+        renderConstruction();
+        return;
+    }
+    fetchData();
 }
 
 // Update time remaining for each item
@@ -402,6 +414,20 @@ function fetchData() {
     // Refresh data every 15 minutes
     clearTimeout(refreshData);
     refreshData = setTimeout(fetchData, 1000*60*15);
+}
+
+function renderConstruction() {
+    data = [{
+                "date": "-",
+                "fullDate": new Date(Date.now() + + 1000*60*60*12),
+                "time": "11:59 PM",
+                "name": `UNDER CONSTRUCTION`,
+                "type": "No",
+                "major": "Yes",
+                "attending": "All",
+                "notes": "This calendar is currently under construction. Check back later!",
+            }];
+    renderItems();
 }
 
 function renderError() {
