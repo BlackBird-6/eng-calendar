@@ -2,7 +2,7 @@
 let sheetId = localStorage.getItem("sheetId") ?? "1B6kZoFqaIocyBSl--YfNAmb3_QC__8kcnnV4xVhCC6A";
 
 let constructionIds = [
-    "1B6kZoFqaIocyBSl--YfNAmb3_QC__8kcnnV4xVhCC6A", // 1st Year Engineering
+    // "1B6kZoFqaIocyBSl--YfNAmb3_QC__8kcnnV4xVhCC6A", // 1st Year Engineering
     // "1LMcATnZ8rVms-qYzmDynx1oV5kkhrMkwBvhJbYflLKA", // 2nd Year Software
     "1HwQoV-G6VOgtyzIvoLyc7gR4FzajTOe4C8X2q53o9lg", // 2nd Year Electrical
     "1NJTLaNprNItsDXc_5en1mQVjB7cnQd5YGsnbqyTbWsU"  // 2nd Year Mechanical
@@ -379,11 +379,23 @@ function fetchData() {
             if(r[0]) {
                 let dateSplit = r[0].split("/") // ex. 12/14/2025
                 let timeSplit = r[1].split(" ") // ex. 3:00 PM
-                let hour = timeSplit[0].split(":")[0]
-                let minute = timeSplit[0].split(":")[1]
+
+                // Normalize date format by removing leading zeros
+                if(dateSplit[0].startsWith("0")) dateSplit[0] = dateSplit[0].slice(1);
+                if(dateSplit[1].startsWith("0")) dateSplit[1] = dateSplit[1].slice(1);
+                r[0] = dateSplit.join("/") 
+
+                // Adjust time to 24 hour format
+                let [hour, minute] = timeSplit[0].split(":") 
                 let hourAdjusted = Number(hour) + (timeSplit[1] === "PM" ? 12 : 0) - (Number(hour) === 12 ? 12 : 0)
                 let timeAdjusted = `${hourAdjusted < 10 ? "0" : ""}${hourAdjusted}:${minute}:00`
-                fullDate = new Date(`${dateSplit[2]}-${dateSplit[0] < 10 ? "0" : ""}${dateSplit[0]}-${dateSplit[1] < 10 ? "0" : ""}${dateSplit[1]}T${timeAdjusted}`)                    
+
+                // Create ISO 8601 date string
+                let dateString = `${dateSplit[2]}-${dateSplit[0] < 10 ? "0" : ""}${dateSplit[0]}-${dateSplit[1] < 10 ? "0" : ""}${dateSplit[1]}T${timeAdjusted}`;
+                fullDate = new Date(dateString)
+                if(fullDate.toString() === "Invalid Date") {
+                    console.warn("WARNING: Invalid date " + dateString + " for event " + r[2])
+                }             
             }
 
             jsonRow = {
