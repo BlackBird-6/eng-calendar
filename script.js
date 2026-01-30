@@ -5,7 +5,7 @@ let constructionIds = [
     // "1B6kZoFqaIocyBSl--YfNAmb3_QC__8kcnnV4xVhCC6A", // 1st Year Engineering
     // "1LMcATnZ8rVms-qYzmDynx1oV5kkhrMkwBvhJbYflLKA", // 2nd Year Software
     // "1HwQoV-G6VOgtyzIvoLyc7gR4FzajTOe4C8X2q53o9lg", // 2nd Year Electrical
-    "1NJTLaNprNItsDXc_5en1mQVjB7cnQd5YGsnbqyTbWsU"  // 2nd Year Mechanical
+    // "1NJTLaNprNItsDXc_5en1mQVjB7cnQd5YGsnbqyTbWsU"  // 2nd Year Mechanical
 ];
 
 const sheetName = "Events"; // tab name
