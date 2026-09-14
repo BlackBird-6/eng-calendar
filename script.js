@@ -477,6 +477,7 @@ function fetchData() {
                 data.push(new dataRow(r))
             }
 
+            // Get global note
             let globalNote = rows[0] && rows[0][9] && rows[0][9]['v'] ? rows[0][9]['v'] : null;
             renderGlobalNotes(globalNote);
 
