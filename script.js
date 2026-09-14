@@ -35,7 +35,6 @@ class dataRow {
                 this.notes += "Warning: Invalid date encoded. Please contact the spreadsheet organizers.";
             }
 
-            console.log(this.notes)
             this.notes = this.notes || '-'
 
         } else if (typeof row === 'object' && row !== null) {
@@ -46,10 +45,10 @@ class dataRow {
 
 const sheets = [
     new Sheet("1B6kZoFqaIocyBSl--YfNAmb3_QC__8kcnnV4xVhCC6A", "1st Year Engineering", true),
-    new Sheet("1qDRKbN2ldn4Fyp8pGobONUH0Ab0WPs8xsR41hc9KlTE", "2nd Year Chemical", true),
-    new Sheet("1HwQoV-G6VOgtyzIvoLyc7gR4FzajTOe4C8X2q53o9lg", "2nd Year Electrical", true),
-    new Sheet("1NJTLaNprNItsDXc_5en1mQVjB7cnQd5YGsnbqyTbWsU", "2nd Year Mechanical", true),
-    new Sheet("1LMcATnZ8rVms-qYzmDynx1oV5kkhrMkwBvhJbYflLKA", "2nd Year Software", true)
+    // new Sheet("1qDRKbN2ldn4Fyp8pGobONUH0Ab0WPs8xsR41hc9KlTE", "2nd Year Chemical", true),
+    // new Sheet("1HwQoV-G6VOgtyzIvoLyc7gR4FzajTOe4C8X2q53o9lg", "2nd Year Electrical", true),
+    // new Sheet("1NJTLaNprNItsDXc_5en1mQVjB7cnQd5YGsnbqyTbWsU", "2nd Year Mechanical", true),
+    new Sheet("1LMcATnZ8rVms-qYzmDynx1oV5kkhrMkwBvhJbYflLKA", "2nd Year Software", false)
 ];
 
 const sheetName = "Events"; // tab name
@@ -110,13 +109,14 @@ function populateSheetLinks() {
     const customLink = document.createElement("a");
     customLink.className = "cal-link";
     customLink.textContent = "Custom";
-    customLink.onclick = () => swapSheet(`${prompt('Enter Google Sheets ID')} `, true);
+    customLink.onclick = () => swapSheet(`${prompt('Enter Google Sheets ID')}`, true);
     container.appendChild(customLink);
 }
 
 function swapSheet(sheetId, ignoreConstruction) {
+    sheetId = sheetId.trim()
     localStorage.setItem("sheetId", sheetId)
-    url_new = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?sheet=${sheetName}&tqx=out:json&tq=select A,B,C,D,E,F,G,H,I limit 1000 offset 0`;
+    url_new = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?sheet=${sheetName}&tqx=out:json&tq=select A,B,C,D,E,F,G,H,I,J limit 1000 offset 0`;
     if (url === url_new) return;
     url = url_new;
     const targetSheet = sheets.find(s => s.sheet_id === sheetId);
@@ -330,6 +330,11 @@ function renderDropdowns() {
         }
     })
 
+    if (courseDropdowns.children.length === 0) {
+        courseDropdowns.style.display = 'none';
+    } else {
+        courseDropdowns.style.display = 'flex';
+    }
 }
 
 document.querySelector(".introText").innerHTML = atob("YnkgTmF0aGFuIENoaXU=");
@@ -460,8 +465,7 @@ function fetchData() {
         })
         .then(res => {
             let rows = JSON.parse(res.substr(47).slice(0, -2))['table']['rows'];
-            rows = rows.map(r => r['c'].slice(0, 9))
-            // console.log(rows)
+            rows = rows.map(r => r['c'].slice(0, 10))
             for (r of rows) {
                 r = r.map((r) => {
                     if (!r) return null;
@@ -472,6 +476,9 @@ function fetchData() {
 
                 data.push(new dataRow(r))
             }
+
+            let globalNote = rows[0] && rows[0][9] && rows[0][9]['v'] ? rows[0][9]['v'] : null;
+            renderGlobalNotes(globalNote);
 
             data.sort((a, b) => a.fullDate - b.fullDate)
             renderItems();
@@ -491,7 +498,21 @@ function dateError() {
     return new Date(Date.now() + + 1000 * 60 * 60 * 12);
 }
 
+function renderGlobalNotes(notesStr) {
+    const container = document.querySelector("#globalSheetNotes");
+    if (!container) return;
+    if (!notesStr || notesStr.trim() === "" || notesStr === "-") {
+        container.style.display = "none";
+        container.innerHTML = "";
+    } else {
+        container.style.display = "block";
+        let formatted = notesStr.replaceAll("\\n", "\n");
+        container.textContent = "Spreadsheet Notes: " + formatted;
+    }
+}
+
 function renderConstruction() {
+    renderGlobalNotes(null);
     data = [{
         "date": "-",
         "fullDate": dateError(),
@@ -506,6 +527,7 @@ function renderConstruction() {
 }
 
 function renderError() {
+    renderGlobalNotes(null);
     data = [{
         "date": "-",
         "fullDate": dateError(),
@@ -530,6 +552,8 @@ function toggleVisibility(id, linkId) {
         : "+ Click to Open";
 }
 function startLoading() {
+    renderGlobalNotes(null);
+    courseDropdowns.style.display = 'none';
     const body = document.querySelector(".calendarBody")
     body.style.opacity = 0
     const loading = document.querySelector(".calendarLoading")

@@ -57,61 +57,23 @@
   </div>
 
   <hr>
-  <br />
 
   <h1 class="calendarLoading">Loading...</h1>
   <div class="calendarBody" style="opacity: 0;">
 
     <!-- Dropdowns for Course IDs -->
-    <div id="courseDropdowns" class="flexContainer" style="display: flex;">
-      <!-- <label>Statics Section: </label>
-      <select id="staticsDropdown">
-        <option disabled selected value>-</option>
-        <option value="staticsT004">TUT 004</option>
-        <option value="staticsT005">TUT 005</option>
-        <option value="staticsT006">TUT 006</option>
-        <option value="staticsT007">TUT 007</option>
-        <option value="staticsT008">TUT 008</option>
-        <option value="staticsT009">TUT 009</option>
-        <option value="staticsT010">TUT 010</option>
-        <option value="staticsT011">TUT 011</option>
-        <option value="staticsT012">TUT 012</option>
-        <option value="staticsT013">TUT 013</option>
-        <option value="staticsT014">TUT 014</option>
-        <option value="staticsT015">TUT 015</option>
-      </select>
-
-      <div id="chemSelect">
-        <label>Chemistry Section: </label>
-        <select id="chemDropdown">
-          <option disabled selected value>-</option>
-          <option value="chemLO">Ends in ODD number</option>
-          <option value="chemLE">Ends in EVEN number</option>
-        </select>
-      </div>
-
-      <div class="programmingSelect">
-        <label>Programming Section: </label>
-        <select id="programmingDropdown">
-          <option disabled selected value>-</option>
-          <option value="programmingL003">LAB 003</option>
-          <option value="programmingL004">LAB 004</option>
-          <option value="programmingL005">LAB 005</option>
-          <option value="programmingL006">LAB 006</option>
-          <option value="programmingL007">LAB 007</option>
-          <option value="programmingL008">LAB 008</option>
-        </select>
-      </div> -->
-
+    <div id="courseDropdowns" class="flexContainer" style="margin-bottom: 15px;">
     </div>
 
-    <br />
-
     <!-- Checkbox for tracking seconds -->
-    <div class="flexContainer">
+    <div class="flexContainer" style="">
       <label>Increase Stress: </label>
       <input type="checkbox" id="renderSeconds">
     </div>
+
+    <!-- Global Sheet Notes -->
+    <div id="globalSheetNotes" class="introText"
+      style="display: none; margin-top: 10px; text-align: center; white-space: pre-wrap;"></div>
 
     <h2 id="courseWarn" class="warn" style="display: none;">Warning! Unselected courses still exist.</h2>
 
