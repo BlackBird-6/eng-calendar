@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +8,19 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHN40RGPCX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-FHN40RGPCX');
-</script>
+  </script>
   <link rel="stylesheet" href="styles.css">
   <title>Engineering Calendar</title>
-  <div style="display: flex; flex-direction: column; align-items: center; background-color: #f7e8f9; margin-top: -10px;">
+  <div
+    style="display: flex; flex-direction: column; align-items: center; background-color: #f7e8f9; margin-top: -10px;">
     <img style="width: 200px;" src="assets/engcal.png">
     <h3 style="margin-top: -15px;" class="introText">by BlackBird_6</h3>
   </div>
 </head>
+
 <body>
   <hr style="margin-top: 0px;">
   <p class="introText">Hello! This calendar is designed to help you keep track of important dates and deadlines for your
@@ -28,8 +31,8 @@
     <br />
     <br />
     Please note that for brevity, no events which take place weekly will be listed. Since they run every week, this
-    should already be part of your “normal” schedule for the week and hopefully does not need any reminders. This includes 
-    Physics Labs/Quizzes and Programming Quizzes for 1st years.
+    should already be part of your “normal” schedule for the week and hopefully does not need any reminders.
+    This includes Physics Labs/Quizzes and Programming Quizzes for 1st years.
     Also, only mandatory assignments with grades attached to them will be listed. This means that, for example, tutorial
     sections will not be listed, even if showing up to them would be helpful.
     <br />
@@ -40,20 +43,17 @@
     <br />
     <br />
     Find a mistake in any of the calendars? Have any other concerns or suggestions? Feel free to
-    join the discord <a class="disc-link">here</a>! You can also find a copy of the template spreadsheet used to create all of these calendars <a href="https://docs.google.com/spreadsheets/d/1tfHWfI2c1MNtvn0HkmS1b3R0oOuaNuo-xnfQUu0tXX8/edit?usp=sharing">here</a>! If you create your own calendar and share it with me, I may also add it to the site for everyone else to use. Enjoy!
+    join the discord <a class="disc-link">here</a>! You can also find a copy of the template spreadsheet used to create
+    all of these calendars <a
+      href="https://docs.google.com/spreadsheets/d/1tfHWfI2c1MNtvn0HkmS1b3R0oOuaNuo-xnfQUu0tXX8/edit?usp=sharing">here</a>!
+    If you create your own calendar and share it with me, I may also add it to the site for everyone else to use. Enjoy!
   </p>
 
   <div class="flexContainer">
     <h2 class="noMargin">Select Calendar:</h2>
   </div>
 
-  <div class="flexContainer">
-    <a class="cal-link" onclick="swapSheet('1B6kZoFqaIocyBSl--YfNAmb3_QC__8kcnnV4xVhCC6A')">1st Year Engineering</a>
-    <a class="cal-link" onclick="swapSheet('1qDRKbN2ldn4Fyp8pGobONUH0Ab0WPs8xsR41hc9KlTE')">2nd Year Chemical</a>
-    <a class="cal-link" onclick="swapSheet('1HwQoV-G6VOgtyzIvoLyc7gR4FzajTOe4C8X2q53o9lg')">2nd Year Electrical</a>
-    <a class="cal-link" onclick="swapSheet('1NJTLaNprNItsDXc_5en1mQVjB7cnQd5YGsnbqyTbWsU')">2nd Year Mechanical</a>
-    <a class="cal-link" onclick="swapSheet('1LMcATnZ8rVms-qYzmDynx1oV5kkhrMkwBvhJbYflLKA')">2nd Year Software</a>
-    <a class="cal-link" onclick="swapSheet(`${prompt('Enter Google Sheets ID')}`, true)">Custom</a>
+  <div id="sheetContainer" class="flexContainer">
   </div>
 
   <hr>
@@ -224,11 +224,12 @@
         </tbody>
       </table>
     </div>
-    
+
     <div class="flexContainer" style="margin-top: 50px; margin-bottom: 20px;">
       <span class="supportText"></span>
     </div>
   </div>
   <script src="script.js"></script>
 </body>
+
 </html>

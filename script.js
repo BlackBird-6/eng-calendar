@@ -1,11 +1,55 @@
 // Read events
 let sheetId = localStorage.getItem("sheetId") ?? "1B6kZoFqaIocyBSl--YfNAmb3_QC__8kcnnV4xVhCC6A";
 
-let constructionIds = [
-    // "1B6kZoFqaIocyBSl--YfNAmb3_QC__8kcnnV4xVhCC6A", // 1st Year Engineering
-    // "1LMcATnZ8rVms-qYzmDynx1oV5kkhrMkwBvhJbYflLKA", // 2nd Year Software
-    // "1HwQoV-G6VOgtyzIvoLyc7gR4FzajTOe4C8X2q53o9lg", // 2nd Year Electrical
-    // "1NJTLaNprNItsDXc_5en1mQVjB7cnQd5YGsnbqyTbWsU"  // 2nd Year Mechanical
+class Sheet {
+    constructor(sheet_id, name, isUnderConstruction = false) {
+        this.sheet_id = sheet_id;
+        this.name = name;
+        this.isUnderConstruction = isUnderConstruction;
+    }
+}
+
+class dataRow {
+    constructor(row) {
+        if (Array.isArray(row)) {
+            this.date = row[0];
+            this.time = row[1] ?? '11:59 PM';
+            this.name = row[2] ?? 'Unnamed Event';
+            this.type = row[3] ?? 'No';
+            this.major = row[4] ?? 'No';
+            this.attendingHeader = row[5] ?? (row[6] ? 'Unnamed Dropdown' : null);
+            this.attending = row[6] ?? 'All';
+            this.notes = row[7] ?? '';
+            this.id = row[2] ? toId(row[2]) : 'Unnamed';
+            this.hidden = row[8] ?? 'No';
+
+            if (this.time != '11:59 PM' && this.time != '11:55 PM') {
+                this.notes += this.notes ? '\n' : ''
+                this.notes += `Starts at ${this.time} `
+            }
+            try {
+                this.fullDate = convertToIso8601(this);
+            } catch (e) {
+                this.fullDate = dateError();
+                this.notes += this.notes ? '\n' : ''
+                this.notes += "Warning: Invalid date encoded. Please contact the spreadsheet organizers.";
+            }
+
+            console.log(this.notes)
+            this.notes = this.notes || '-'
+
+        } else if (typeof row === 'object' && row !== null) {
+            Object.assign(this, row);
+        }
+    }
+}
+
+const sheets = [
+    new Sheet("1B6kZoFqaIocyBSl--YfNAmb3_QC__8kcnnV4xVhCC6A", "1st Year Engineering", true),
+    new Sheet("1qDRKbN2ldn4Fyp8pGobONUH0Ab0WPs8xsR41hc9KlTE", "2nd Year Chemical", true),
+    new Sheet("1HwQoV-G6VOgtyzIvoLyc7gR4FzajTOe4C8X2q53o9lg", "2nd Year Electrical", true),
+    new Sheet("1NJTLaNprNItsDXc_5en1mQVjB7cnQd5YGsnbqyTbWsU", "2nd Year Mechanical", true),
+    new Sheet("1LMcATnZ8rVms-qYzmDynx1oV5kkhrMkwBvhJbYflLKA", "2nd Year Software", true)
 ];
 
 const sheetName = "Events"; // tab name
@@ -37,7 +81,7 @@ const renderSecondsBox = document.querySelector("#renderSeconds");
 let attendingList = localStorage.getItem("attendingList") ? JSON.parse(localStorage.getItem("attendingList")) : {};
 
 
-renderSecondsBox.addEventListener("change", function() {
+renderSecondsBox.addEventListener("change", function () {
     stressMode = this.checked;
     localStorage.setItem("stressMode", stressMode);
     renderItems();
@@ -48,12 +92,36 @@ renderSecondsBox.checked = localStorage.getItem("stressMode") == "true";
 // Update dropdowns
 renderSecondsBox.dispatchEvent(new Event("change"));
 
+function populateSheetLinks() {
+    const container = document.querySelector("#sheetContainer");
+    if (!container) return;
+    container.innerHTML = "";
+
+    // Populate all sheets into selection bar
+    sheets.forEach(sheet => {
+        const link = document.createElement("a");
+        link.className = "cal-link";
+        link.textContent = sheet.name;
+        link.onclick = () => swapSheet(sheet.sheet_id);
+        container.appendChild(link);
+    });
+
+    // Custom sheet selection
+    const customLink = document.createElement("a");
+    customLink.className = "cal-link";
+    customLink.textContent = "Custom";
+    customLink.onclick = () => swapSheet(`${prompt('Enter Google Sheets ID')} `, true);
+    container.appendChild(customLink);
+}
+
 function swapSheet(sheetId, ignoreConstruction) {
     localStorage.setItem("sheetId", sheetId)
     url_new = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?sheet=${sheetName}&tqx=out:json&tq=select A,B,C,D,E,F,G,H,I limit 1000 offset 0`;
     if (url === url_new) return;
     url = url_new;
-    if (!ignoreConstruction && constructionIds.includes(sheetId)) {
+    const targetSheet = sheets.find(s => s.sheet_id === sheetId);
+    const isUnderConstruction = targetSheet ? targetSheet.isUnderConstruction : false;
+    if (!ignoreConstruction && isUnderConstruction) {
         renderConstruction();
         return;
     }
@@ -75,11 +143,11 @@ function updateTimeLeft() {
     data.forEach(item => {
         const eventDate = item.fullDate;
         const timeDiff = eventDate - currentDate;
-        
+
         item.daysLeft = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
         item.hoursLeft = Math.floor(timeDiff / 1000 / 60 / 60);
         item.minutesLeft = Math.floor(timeDiff / 1000 / 60);
-        
+
         // Track time to the second if stress mode is enabled
         if (stressMode == true) {
             let secondsLeft = Math.ceil(timeDiff / 1000) % 60;
@@ -106,7 +174,7 @@ function updateTimeLeft() {
         else if (item.hoursLeft >= 0 && item.hoursLeft < 48)
             item.timeLeft = `${item.hoursLeft} hours`;
         else
-            item.timeLeft = `${item.daysLeft} days`;
+            item.formattedTimeLeft = `${item.daysLeft} days`;
     });
 }
 
@@ -114,7 +182,7 @@ function updateTimeLeft() {
 function checkAttendance(item) {
     return item.attending == "All"
         || item.attending.includes(attendingList[toId(item.attendingHeader)]);
-    }
+}
 
 // Initialize item checkboxes after rendering items
 function initializeCheckboxes() {
@@ -193,12 +261,12 @@ function toId(str) {
 function checkUnselectedCourses() {
     courseWarn.style.display = 'none';
     Array.from(courseDropdowns.children).forEach(n => {
-        
-        if(n.style.display !== "none") {
+
+        if (n.style.display !== "none") {
             let select = n.querySelector("select");
-            if(select && (!select.value || select.value === '-')) {
+            if (select && (!select.value || select.value === '-')) {
                 courseWarn.style.display = 'block';
-            }            
+            }
         }
 
     })
@@ -208,14 +276,14 @@ function renderDropdowns() {
     courseDropdowns.innerHTML = '';
     let dropdownIds = {};
 
-    for(let entry of data) {
+    for (let entry of data) {
         if (entry.attending && entry.attending !== 'All') {
-            
+
             entry.attending = entry.attending.split(",").map((ele) => ele.trim())
 
             // Set to empty array if it doesn't exist yet
             dropdownIds[entry.attendingHeader] ??= new Set()
-            for(id of entry.attending) {
+            for (id of entry.attending) {
                 dropdownIds[entry.attendingHeader].add(id)
             }
             entry.attending.push("");
@@ -223,7 +291,7 @@ function renderDropdowns() {
     }
 
     // Create a sorted dropdown for all necessary fields
-    for(let header in dropdownIds) {
+    for (let header in dropdownIds) {
         dropdownIds[header] = Array.from(dropdownIds[header]).sort()
 
         let dropdownDiv = document.createElement("div")
@@ -235,14 +303,14 @@ function renderDropdowns() {
         let dropdownSelect = document.createElement("select")
         dropdownSelect.innerHTML = `<option selected value>-</option>`
 
-        for(let id of dropdownIds[header]) {
+        for (let id of dropdownIds[header]) {
             let option = document.createElement("option")
             option.value = id
             option.textContent = `${id}`
             dropdownSelect.append(option)
         }
-        
-        dropdownSelect.addEventListener("change", function() {
+
+        dropdownSelect.addEventListener("change", function () {
             attendingList[toId(header)] = this.value;
             localStorage.setItem("attendingList", JSON.stringify(attendingList));
             checkUnselectedCourses();
@@ -256,12 +324,12 @@ function renderDropdowns() {
 
     Array.from(courseDropdowns.children).forEach(n => {
         let select = n.querySelector("select");
-        if(select) {
+        if (select) {
             select.value = attendingList[n.id.slice(0, -6)] ?? '-'
             select.dispatchEvent(new Event("change"));
         }
     })
-    
+
 }
 
 document.querySelector(".introText").innerHTML = atob("YnkgTmF0aGFuIENoaXU=");
@@ -277,18 +345,18 @@ function renderItems() {
     updateTimeLeft();
 
     data.forEach(item => {
-        if(item.hidden === 'Yes') return;
-        if(!item.date) return;
+        if (item.hidden === 'Yes') return;
+        if (!item.date) return;
         if (!checkAttendance(item)) return;
 
         // Due within 48 Hours
         if (item.hoursLeft >= 0 && item.hoursLeft < 48)
             addRow(item, tableBodies[0]);
-        
+
         // Due within 48-168 Hours
         else if (item.hoursLeft >= 48 && item.hoursLeft < 168) // due within a week
             addRow(item, tableBodies[1]);
-        
+
         // Major assessments due within one month
         if (item.daysLeft >= 0 && item.daysLeft <= 31 && item.major === "Yes") // upcoming major assessments
             addRow(item, tableBodies[2]);
@@ -307,7 +375,7 @@ function renderItems() {
         if ((new Date()).toString().includes("Dec") || (new Date()).toString().includes("Jan")) {
             phrase = "Everything has been completed! Enjoy your winter break!";
         }
-        
+
         tableBodies.forEach(body => {
             if (body.innerHTML === "") {
                 body.innerHTML
@@ -340,119 +408,114 @@ function renderItems() {
     stopLoading();
 }
 
+// Switch date format to ISO 8601 because mobile is annoying
+function convertToIso8601(item) {
+    if (!item.time) item.time = '11:59 PM'
+
+    let fullDate = null;
+    if (item.date) {
+        let dateSplit = item.date.split("/") // ex. 12/14/2025
+        let timeSplit = item.time.split(" ") // ex. 3:00 PM
+
+        // Normalize date format by removing leading zeros
+        if (dateSplit[0].startsWith("0")) dateSplit[0] = dateSplit[0].slice(1);
+        if (dateSplit[1].startsWith("0")) dateSplit[1] = dateSplit[1].slice(1);
+        item.date = dateSplit.join("/")
+
+        // Adjust time to 24 hour format
+        let [hour, minute] = timeSplit[0].split(":")
+        let hourAdjusted = Number(hour) + (timeSplit[1] === "PM" ? 12 : 0) - (Number(hour) === 12 ? 12 : 0)
+        let timeAdjusted = `${hourAdjusted < 10 ? "0" : ""}${hourAdjusted}:${minute}:00`
+
+        // Create ISO 8601 date string
+        let dateString = `${dateSplit[2]}-${dateSplit[0] < 10 ? "0" : ""}${dateSplit[0]}-${dateSplit[1] < 10 ? "0" : ""}${dateSplit[1]}T${timeAdjusted}`;
+        fullDate = new Date(dateString)
+        if (fullDate.toString() === "Invalid Date") {
+            console.error("WARNING: Invalid date " + dateString + " for event " + item.name)
+            throw new Error(`Invalid date format for event: ${item.name}`)
+        }
+    }
+    return fullDate;
+}
+
 function fetchData() {
-    
+
     data = []
-    if(loadCount > 10) {
+    if (loadCount > 10) {
         alert("Please wait a bit before trying again.");
         return;
     }
 
     loadCount += 1
-    setTimeout(() => {loadCount -= 1}, 30000) // Soft cap at 10 fetch requests/30 seconds
-    
+    setTimeout(() => { loadCount -= 1 }, 30000) // Soft cap at 10 fetch requests/30 seconds
+
     startLoading();
 
     fetch(url)
-    .then(res => {
-        if (!res.ok) {
-            throw new Error(`HTTP error! Status: ${res.status}`);
-        }
-        return res.text();
-    })
-    .then(res => {
-        let rows = JSON.parse(res.substr(47).slice(0, -2))['table']['rows'];
-        rows = rows.map(r => r['c'].slice(0, 9))
-        // console.log(rows)
-        for(r of rows) {
-            r = r.map((r) => {
-                if (!r) return null;
-                if (!r['v']) return null;
-                if (!r['f']) return r['v']
-                return r['f']
-            })
-            
-            // Switch date format to ISO 8601 because mobile is annoying
-            if(!r[1]) r[1] = '11:59 PM'
-            
-            let fullDate = null;
-            if(r[0]) {
-                let dateSplit = r[0].split("/") // ex. 12/14/2025
-                let timeSplit = r[1].split(" ") // ex. 3:00 PM
+        .then(res => {
+            if (!res.ok) {
+                throw new Error(`HTTP error! Status: ${res.status}`);
+            }
+            return res.text();
+        })
+        .then(res => {
+            let rows = JSON.parse(res.substr(47).slice(0, -2))['table']['rows'];
+            rows = rows.map(r => r['c'].slice(0, 9))
+            // console.log(rows)
+            for (r of rows) {
+                r = r.map((r) => {
+                    if (!r) return null;
+                    if (!r['v']) return null;
+                    if (!r['f']) return r['v']
+                    return r['f']
+                })
 
-                // Normalize date format by removing leading zeros
-                if(dateSplit[0].startsWith("0")) dateSplit[0] = dateSplit[0].slice(1);
-                if(dateSplit[1].startsWith("0")) dateSplit[1] = dateSplit[1].slice(1);
-                r[0] = dateSplit.join("/") 
-
-                // Adjust time to 24 hour format
-                let [hour, minute] = timeSplit[0].split(":") 
-                let hourAdjusted = Number(hour) + (timeSplit[1] === "PM" ? 12 : 0) - (Number(hour) === 12 ? 12 : 0)
-                let timeAdjusted = `${hourAdjusted < 10 ? "0" : ""}${hourAdjusted}:${minute}:00`
-
-                // Create ISO 8601 date string
-                let dateString = `${dateSplit[2]}-${dateSplit[0] < 10 ? "0" : ""}${dateSplit[0]}-${dateSplit[1] < 10 ? "0" : ""}${dateSplit[1]}T${timeAdjusted}`;
-                fullDate = new Date(dateString)
-                if(fullDate.toString() === "Invalid Date") {
-                    console.warn("WARNING: Invalid date " + dateString + " for event " + r[2])
-                }             
+                data.push(new dataRow(r))
             }
 
-            jsonRow = {
-                'date' : r[0],
-                'fullDate' : fullDate,
-                'time' : r[1] ?? '11:59 PM',
-                'name' : r[2] ?? 'Unnamed Event',
-                'type' : r[3] ?? 'No',
-                'major' : r[4] ?? 'No',
-                'attendingHeader' : r[5] ?? (r[6] ? 'Unnamed Dropdown' : null),
-                'attending' : r[6] ?? 'All',
-                'notes' : r[7] ?? '-',
-                'id' : r[2] ? toId(r[2]) : 'Unnamed',
-                'hidden' : r[8] ?? 'No'
-            }
-            data.push(jsonRow)
-        }
-        
-        data.sort((a, b) => a.fullDate - b.fullDate)
-        renderItems();
-        renderDropdowns()
-    })
-    .catch(error => {
-        console.error("Error fetching or parsing JSON from sheets:", error);
-        renderError();
-    });
-    
+            data.sort((a, b) => a.fullDate - b.fullDate)
+            renderItems();
+            renderDropdowns()
+        })
+        .catch(error => {
+            console.error("Error fetching or parsing JSON from sheets:", error);
+            renderError();
+        });
+
     // Refresh data every 15 minutes
     clearTimeout(refreshData);
-    refreshData = setTimeout(fetchData, 1000*60*15);
+    refreshData = setTimeout(fetchData, 1000 * 60 * 15);
+}
+
+function dateError() {
+    return new Date(Date.now() + + 1000 * 60 * 60 * 12);
 }
 
 function renderConstruction() {
     data = [{
-                "date": "-",
-                "fullDate": new Date(Date.now() + + 1000*60*60*12),
-                "time": "11:59 PM",
-                "name": `UNDER CONSTRUCTION`,
-                "type": "No",
-                "major": "Yes",
-                "attending": "All",
-                "notes": "This calendar is currently under construction. Check back later!",
-            }];
+        "date": "-",
+        "fullDate": dateError(),
+        "time": "11:59 PM",
+        "name": `UNDER CONSTRUCTION`,
+        "type": "No",
+        "major": "Yes",
+        "attending": "All",
+        "notes": "This calendar is currently under construction. Check back later!",
+    }];
     renderItems();
 }
 
 function renderError() {
     data = [{
-                "date": "-",
-                "fullDate": new Date(Date.now() + + 1000*60*60*12),
-                "time": "11:59 PM",
-                "name": `ERROR`,
-                "type": "No",
-                "major": "Yes",
-                "attending": "All",
-                "notes": "An unknown error occurred while trying to load event data. Try reloading the page or check console for details. Contact the organizer of the spreadsheet if the error persists.",
-            }];
+        "date": "-",
+        "fullDate": dateError(),
+        "time": "11:59 PM",
+        "name": `ERROR`,
+        "type": "No",
+        "major": "Yes",
+        "attending": "All",
+        "notes": "An unknown error occurred while trying to load event data. Try reloading the page or check console for details. Contact the organizer of the spreadsheet if the error persists.",
+    }];
     renderItems();
 }
 
@@ -479,5 +542,6 @@ function stopLoading() {
     loading.style.display = "none";
 }
 
+populateSheetLinks();
 startLoading();
 swapSheet(sheetId)
