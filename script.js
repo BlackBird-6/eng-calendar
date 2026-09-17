@@ -48,7 +48,7 @@ const sheets = [
     // new Sheet("1qDRKbN2ldn4Fyp8pGobONUH0Ab0WPs8xsR41hc9KlTE", "2nd Year Chemical", true),
     // new Sheet("1HwQoV-G6VOgtyzIvoLyc7gR4FzajTOe4C8X2q53o9lg", "2nd Year Electrical", true),
     // new Sheet("1NJTLaNprNItsDXc_5en1mQVjB7cnQd5YGsnbqyTbWsU", "2nd Year Mechanical", true),
-    new Sheet("1LMcATnZ8rVms-qYzmDynx1oV5kkhrMkwBvhJbYflLKA", "2nd Year Software", false)
+    new Sheet("1HnjClWqfIUpQOeAPFfL-6hmEwsXRitJaWXCEf1HKX70", "3rd Year Software", false)
 ];
 
 const sheetName = "Events"; // tab name
